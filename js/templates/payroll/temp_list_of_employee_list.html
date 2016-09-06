@@ -1,0 +1,5 @@
+<% library.forEach(function(model) { %>
+<li class="list-group-item <%= (model.designation === 'driver') ? 'text-info': '' %>">
+   <%= model.fullname %> - <%= model.designation.substr(0,1).toUpperCase() %>
+</li>
+<% }); %>

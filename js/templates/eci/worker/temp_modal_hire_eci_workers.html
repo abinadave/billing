@@ -1,0 +1,53 @@
+    <div class="modal fade" id="modalHire" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Hire ECI Worker</h4>
+                </div>
+                <div class="modal-body">
+                    <label>Fullname
+                       <input type="text" class="form-control" id="fullname" name="fullname" />
+                    </label>
+                    <label>Rate per day
+                       <input type="text" class="form-control" id="rpd" name="rpd" />
+                    </label>
+                    <label>Designation
+                       <select style="width: 216px" class="form-control" id="designation" name="designation">
+                           <option>Select Designation</option>
+                       </select>
+                    </label>
+                    <label>Project Site (Location)
+                       <select style="width: 216px" class="form-control" id="site" name="site">
+                           <option>Select Location</option>
+                       </select>
+                    </label>
+                    <label>Date hired
+                        <input type="date" class="form-control the-dates" id="date-hired" name="date_hired" />
+                    </label>
+                    <br>
+                       <label style="margin-top:10px">Drivers License <input type="checkbox" id="chk-with-license"></label>
+                    <br>
+                    <label id="lbl-with-license" style="display: none">License expiration date
+                        <input type="date" class="form-control the-dates" name="license_exp" id="license-exp" />
+                        <hr>
+                    </label>    
+                    <h4>Contract dates: </h4>
+                    <label>From
+                        <input type="date" class="form-control the-dates" id="start" />
+                    </label>
+                    <label>To
+                        <input type="date" class="form-control the-dates" id="end" />
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+          </form>  
+        </div>
+        <!-- /.modal-dialog -->
+    </div>

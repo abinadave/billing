@@ -1,0 +1,11 @@
+<% library.forEach(function(model) { %>
+   <li class="list-group-item">
+     
+        <%= model.name %>
+
+     <a class="pull-right" href="#removeDesignation/<%= model.id %>"> 
+        <i class="fa fa-remove text-danger"></i> 
+     </a>   
+     (<span class=""><b class="text-primary"><%= eci_workers.where({designation: model.id}).length %></b></span>)
+   </li>
+<% }); %>

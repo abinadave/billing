@@ -1,0 +1,40 @@
+<tr>
+   <td></td><td class="text-center">Drivers</td><td></td><td></td><td></td>
+</tr>
+<% var total = 0.0, numbering = 0 %>
+<% library.forEach(function(model) { %>
+<% if(model.designation === 'driver'){ %>
+<% var salaryD = employee_module.calculateSalaryDriver(Number(model.ton)) %>
+<% total += salaryD %>
+<tr>
+   <td class="text-center"><%= ++numbering %></td>
+   <td><%= model.fullname %></td>
+   <td class="text-right"><%= accounting.formatMoney(model.ton,' ', 2) %></td>
+   <td class="text-right"><%= accounting.formatMoney(salaryD,'',2) %></td>
+   <td></td>
+</tr>
+<% } %>
+<% }); %>
+
+<tr>
+   <td></td><td class="text-center">Helpers</td><td></td><td></td><td></td>
+</tr>
+
+<% library.forEach(function(model) { %>
+<% if(model.designation === 'helper'){ %>
+<% var salaryH = employee_module.calculateSalaryHelper(Number(model.ton)) %>
+<% total += employee_module.calculateSalaryHelper(Number(model.ton)) %>
+<tr>
+   <td class="text-center"><%= ++numbering %></td>
+   <td><%= model.fullname %></td>
+   <td class="text-right"><%= accounting.formatMoney(model.ton,' ', 2) %></td>
+   <td class="text-right"><%= accounting.formatMoney(salaryH,'',2) %></td>
+   <td></td>
+</tr>
+<% } %>
+<% }); %>
+
+<tr>
+   <td colspan="3" class="text-right" style="font-size: 13px; font-weight: bolder">TOTAL = </td>
+   <td class="text-right" style="font-size: 13px; font-weight: bolder; background-color: yellow"><%= accounting.formatMoney(total,'Php ', 2) %></td>
+</tr>

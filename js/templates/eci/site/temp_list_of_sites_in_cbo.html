@@ -1,0 +1,4 @@
+<option value="">Select Site</option>
+<% library.forEach(function(model) { %>
+    <option id="site-<%= model.id %>" value="<%= model.id %>"><%= model.name %></option>
+<% }); %>

@@ -1,0 +1,48 @@
+
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Employee List
+        </div>
+        <div class="panel-body">
+
+  <div style="display: inline">
+      <button class="btn btn-primary btn-xs" id="btnHire">hire <span class="glyphicon glyphicon-plus"></span></button>
+      <button class="btn btn-warning btn-xs" id="btnPayroll">Create payroll <span class="glyphicon glyphicon-money"></span></button>
+      <button class="btn btn-default btn-xs" id="btnCreateDailySheets" data-trigger="hover" data-toggle="popover" title="Employees in Payroll" data-content="No employee was selected..">Daily Sheet (<span class="badge"><%= employees.where({selected: true}).length %></span>)</button>
+      <span class="" style="margin-left: 20px">Workers <span class="badge" id="no-of-employees">loading...</span></span>
+  </div>
+
+  <label style="margin-left: 2%">Check all <input type="checkbox" id="chk-all"></label>
+  <div class="col-lg-3 pull-right">
+    <div class="input-group">
+      <input id="search" type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Search!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+<br><br>
+  <div style="overflow: auto; height: 650px">
+    <table id="table-emps" class="table table-hover table-condensed table-bordered" style="margin-top: 1%">
+       <thead>
+           <tr>
+               <th width="1"></th>
+               <th>Fullname</th>
+               <th class="text-center">Designation</th>
+               <th class="text-center">Current Truck no.</th>
+               <th class="text-center">Date hired</th>
+               <th width="1"></th>
+           </tr>
+       </thead>
+       <tbody id="list-of-employee"></tbody>
+    </table>
+  </div>
+
+ </div>
+
+</div>
+</div>
+               

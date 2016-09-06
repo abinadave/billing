@@ -1,0 +1,10 @@
+<% library.forEach(function(model) { %>
+<tr id="<%= model.id %>">
+   <td><input id="chk-<%= model.id %>" type="checkbox" value="<%= model.id %>" <%= (model.selected === true) ? 'checked': '' %>></td>
+   <td id="fullname"><%= model.fullname %></td>
+   <td class="text-center" id="designation"><%= model.designation %></td>
+   <td class="text-center" id="truck_no"><%= model.truck_no %></td>
+   <td class="text-center" id="date_hired"><%= moment(model.date_hired).format('MMMM DD, YYYY') %></td>
+   <td><a title="Delete permanently" href="#removeThisEmployee/<%= model.id %>"><i class="glyphicon glyphicon-remove"></i></a></td>
+</tr>
+<% }); %>

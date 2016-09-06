@@ -1,0 +1,36 @@
+
+            <div style="padding: 20px">
+            <!-- <h3 style="margin-top: -20px" class="text-center text-primary">Payroll list</h3> -->
+             <div>
+                <label class="remove-when-nothing">Date 1
+                <input type="text" id="d1" class="form-control">
+                </label class="remove-when-nothing">
+                <label class="remove-when-nothing">Date 2
+                <input id="d2" type="text" class="form-control">
+                </label>
+
+                <button class="btn btn-success btn-sm remove-when-nothing" id="btnSummaries">Create Summary</button>
+                
+                <button id="backup-all" class="btn btn-danger btn-sm pull-right remove-when-nothing" style="margin-top: 10px"><span class="glyphicon glyphicon-hdd"> </span> Backup all</button>
+
+             </div>
+             <div>
+             <table id="tbl-payroll" class="table table-bordered table-condensed table-hover">
+                 <thead>
+                    <tr>
+                       <th class="text-center">Date</th>
+                       <th class="text-center">Total ton/ klgs</th>
+                       <th class="text-center">Trip no.</th>
+                       <th class="text-center">Shift time.</th>
+                       <th class="text-center">Workers</th>
+                       <th class="text-center">Status</th>
+                       <th width="1"></th>
+                       <th width="1"></th>
+                    </tr>
+                 </thead>
+                 <tbody id="list-of-payrolls"></tbody>
+             </table>
+             </div>
+          </div>
+
+       

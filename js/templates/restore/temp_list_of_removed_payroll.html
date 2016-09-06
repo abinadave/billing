@@ -1,0 +1,13 @@
+<% var workers = [] %>
+<% library.forEach(function(model) { %>
+<% workers = rpm.getWorkers(model.id) %>
+<tr>
+    <td class="text-center" style="width: 300px"><%= moment(model.date).format('MMMM DD, YYYY dddd') %></td>
+    <td><%= workers %></td>
+    <td class="text-center"><%= rpm.getPlate(workers) %></td>
+    <td class="text-center"><%= model.shift_time %>time</td>
+    <td class="text-center"><%= Accounting.formatMoney(model.ton,'',2) %></td>
+    <td class="text-center"><%= model.trip_no %></td>
+    <td><a href="#restorePayroll/<%= model.id %>">restore</a></td>
+</tr>
+<% }); %>

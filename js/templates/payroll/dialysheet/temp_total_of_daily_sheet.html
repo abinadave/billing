@@ -1,0 +1,31 @@
+<% var total_ton = 0 %>
+<% total_salaries = 0.0, numbering = 0 %>
+<% library.forEach(function(model) { %>
+<% total_ton += Number(model.ton) %>
+<% }); %>
+<thead>
+<tr>
+   <th>Name</th>
+   <th>Total tonnage</th>
+   <th colspan="2">Total Salary Covered</th>
+</tr>
+</thead>
+
+<tbody>
+
+<% selected.forEach(function(model) { %>
+<% total_salaries += Number(model.dailysheetSalary) %>
+  <tr>
+     <td><%= model.fullname %> - <%= model.designation.substr(0,1).toUpperCase() %></td>
+     <td id="td-<%= ++numbering %>"><%= Accounting.formatMoney(total_ton, '', 2) %></td>
+     <td><%= Accounting.formatMoney(Number(model.dailysheetSalary), '', 2) %></td>
+     <td width="40">php</td>
+  </tr>
+<% }); %>
+<tr>
+   <td></td>
+   <td class="text-right">TOTAL</td>
+   <td style="font-size: 14px; font-weight: bolder"><%= Accounting.formatMoney(total_salaries,'Php ', 2) %></td>
+   <td width="40">php</td>
+</tr>
+</tbody>

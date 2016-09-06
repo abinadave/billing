@@ -1,0 +1,49 @@
+<div class="modal fade" id="modalUpdatePayroll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 35%">
+      <form>
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Update payroll</h4>
+            </div>
+            <div class="modal-body">
+            
+                 <label>Date:
+                      <input type="date" name="date" class="form-control" value="<%= model.date %>">
+                 </label>
+
+                 <label>Time
+                   <select class="form-control" name="shift_time" style="width: 200px">
+                       <option value="" selected disabled>Select time</option>
+                       <option id="day" value="day">Day-time</option>
+                       <option id="night" value="night">Night-time</option>
+                   </select>
+                </label>
+
+                <label>Trips
+                   <select class="form-control" name="trip_no" style="width: 200px">
+                       <option value="" selected disabled>Select trip</option>
+                       <option id="1" value="1">1st Trip</option>
+                       <option id="2" value="2">2nd Trip</option>
+                       <option id="3" value="3">3rd Trip</option>
+                       <option id="4" value="4">4th Trip</option>
+                       <option id="5" value="5">5th Trip</option>
+                       <option id="6" value="6">6th Trip</option>
+                   </select>
+                </label>
+
+                <label>Total Ton.
+                    <input type="number" class="form-control" name="ton" style="width: 200px" value="<%= model.ton %>">
+                    <input type="hidden" name="person" value="<%= sessionStorage.getItem('fullname') %>">
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+      </form>  
+    </div>
+    <!-- /.modal-dialog -->
+</div>

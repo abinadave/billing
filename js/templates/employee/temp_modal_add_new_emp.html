@@ -1,0 +1,34 @@
+<div class="modal fade" id="modalAddEmp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 25%">
+      <form>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <img src="assets/ECI%20logo.jpg" style="width: 40px; height: 40px; display: inline">
+                <h4 class="modal-title" id="myModalLabel" style="display: inline">Hire new Employee</h4>
+            </div>
+            <div class="modal-body">
+                <label>Designation
+                    <select class="form-control" name="designation">
+                       <option value="" disabled selected>Select designation</option>
+                       <option value="driver">Driver</option>
+                       <option value="helper">Helper</option>
+                    </select>
+                </label>
+                <label>Fullname
+                    <input type="text" class="form-control" name="fullname" id="fullname"/>
+                </label>
+                <label>Truck No. (Current)
+                    <input type="text" class="form-control" name="truck_no" />
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save Employee</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+      </form>  
+    </div>
+    <!-- /.modal-dialog -->
+</div>

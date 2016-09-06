@@ -1,0 +1,39 @@
+<div class="modal fade" id="modalUpdateEciWorker" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 500px">
+      <form>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Update Employee</h4>
+            </div>
+            <div class="modal-body">
+                <label>Fullname
+                    <input type="text" name="fullname" class="form-control" value="<%= model.fullname %>" />
+                </label>
+                <label>Rate per day
+                    <input type="text" name="rpd" class="form-control" value="<%= model.rpd %>" />
+                </label>
+                <label style="width: 217px">Designation
+                    <select name="designation" id="list-of-desig" class="form-control">
+                       <option>Select Designation</option>
+                    </select>
+                </label>
+                <label style="width: 217px">Site Location
+                    <select name="site" id="list-of-site" class="form-control">
+                       <option>Select site</option>
+                    </select>
+                </label>
+                <label>Date hired
+                    <input type="text" id="date-hired" class="form-control"  value="<%= model.date_hired %>" name="date_hired" />
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+      </form>  
+    </div>
+    <!-- /.modal-dialog -->
+</div>

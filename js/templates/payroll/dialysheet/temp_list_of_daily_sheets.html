@@ -1,0 +1,15 @@
+<% var total_ton = 0 %>
+<% library.forEach(function(model) { %>
+<tr>
+    <td><%= moment(model.date).format('MMMM DD, YYYY') %></td>
+    <td><%= model.shift_time %>-time</td>
+    <td><%= payrollemp_module.getWorkers(model.id) %></td>
+    <td><%= model.trip_no %></td>
+    <td><%= Accounting.formatMoney(model.ton,'',2) %></td>
+    <td width="1">KGs.</td>
+</tr>
+<% total_ton += Number(model.ton) %>
+<% }); %>
+
+
+

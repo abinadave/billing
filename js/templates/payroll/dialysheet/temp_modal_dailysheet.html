@@ -1,0 +1,72 @@
+<div class="modal fade" id="modalDailysheet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 50%">
+        
+          <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-center" id="myModalLabel">Daily Sheet</h4>
+                <button class="btn btn-primary btn-xs" id="printThisDailysheet"><span class="glyphicon glyphicon-print"></span> print</button>
+
+            </div>
+
+            <div class="modal-body">
+                
+                <label>Select All <input type="checkbox" id="chk-all-emps"></label>
+                
+                <div>
+
+                   <label>Date1
+                       <input id="d1" type="text" class="form-control">
+                   </label>
+                   <label>Date2
+                       <input id="d2" type="text" class="form-control">
+                   </label>
+                   <button class="btn btn-info btn-sm" id="btnSubmit">SUBMIT</button>
+                  
+                </div><hr>
+
+                <div id="table-to-print">
+
+                  <div class="text-center">
+                     <label>Daily sheets</label>
+                     <p id="dailysheet-d1-d2"></p>
+                  </div>
+
+                  <span id="div-tbl-dailysheet-loading" class="text-center">
+                     <!-- This is only use for loading indication -->
+                  </span>
+
+                  <div id="div-tbl-dailysheet">
+
+                  <table id="tbl-dailysheet"  class="table table-hover table-condensed table-bordered">
+                     <thead>
+                         <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Driver/Helper</th>
+                            <th>Trips</th>
+                            <th colspan="2">Total Ton/ Trip</th>
+                         </tr>
+                     </thead>
+                     <tbody id="list-of-dailysheets"></tbody>
+                  </table>
+
+
+
+                  <table class="table table-hover table-condensed table-bordered" id="total-of-daily-sheets"></table>
+
+                  </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,12 @@
+<% library.forEach(function(model) { %>
+<tr id="tr-<%= model.id %>">
+   <td class="text-center"><%= moment(model.date).format('MMMM DD, YYYY, dddd') %></td>
+   <td class="text-center"><%= model.ton %></td>
+   <td class="text-center"><%= model.trip_no %></td>
+   <td class="text-center"><%= model.shift_time %>-time</td>
+   <td class="text-center"><%= payrollemp_module.getWorkers(model.id) %></td>
+   <td class="text-center"><%= (moment(model.last_modified).format('MMMM DD, YYYY') === 'Invalid date') ? 'Not yet Modified' : model.last_modified %></td>
+   <td class="text-center"><a href="#editPayroll/<%= model.id %>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+   <td class="text-center"><a href="#deletePayroll/<%= model.id %>"><span class="glyphicon glyphicon-remove"></span></a></td>
+</tr>
+<% }); %>

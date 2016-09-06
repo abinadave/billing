@@ -1,0 +1,90 @@
+<div>
+
+<% ids.forEach(function(driver_id) { %>
+   <% collections = new Backbone.Collection() %>
+   <% var list = self.filter(library, driver_id) %>
+   <p class="text-center">Summary of Salary Covered from <%= dates.from %> - <%= dates.to %></p>
+        <table class="table table-hover table-condensed table-bordered">
+           <thead>
+               <tr>
+                  <th>Date</th>
+                  <th>Driver/Helper</th>
+                  <th>Trips</th>
+                  <th>Shift Time</th>
+                  <th colspan="2">Total Ton/ Trip</th>
+               </tr>
+           </thead>
+           <tbody id="list-of-dailysheets">
+              <% list.forEach(function(model){ %>
+  
+                 <% var payroll = self.collection.where({id: model.id}, true) %>
+                 <% var workers = payrollemp_module.getLastNameWorkers(payroll.get('id'))%>
+  
+                 <tr>
+                    <td><%= moment(payroll.get('date')).format('MMMM DD, YYYY') %></td>
+                    <td><%= workers %></td>
+                    <td><%= payroll.get('trip_no') %></td>
+                    <td><%= payroll.get('shift_time') %>-time</td>
+                    <td><%= Accounting.formatMoney(payroll.get('ton'), '', 2) %></td>
+                    <td width="10">KGs</td>
+                 </tr>
+                 
+                 <% p_emps = payrollemps.where({payroll_id: payroll.get('id')}, false) %>
+                 <% p_emps.forEach(function(p_emp){ %>
+                    
+                    <% var employee = employees.get(p_emp.get('emp_id')).toJSON() %>
+                    
+                    <% if(collections.where({id: employee.id}).length){ %>
+                        <% var model = collections.get(employee.id) %>
+                        <% var ton = model.get('ton') %>
+                        <% model.set({ton: ton + Number(payroll.get('ton'))}) %>
+                    <% }else { %>
+                       <% var obj = { id: employee.id, designation: employee.designation, fullname: employee.fullname, ton: Number(payroll.get('ton')) } %>
+                       <% collections.add(obj) %>
+                    <% } %>
+
+                 <% }) %>
+
+
+              <% }) %>
+           </tbody>
+        </table>
+       
+<table class="table table-bordered table-hover table-condensed" style="page-break-after: always;">
+
+<thead>
+<tr>
+   <th class="text-left">Name</th>
+   <th>Total tonnage</th>
+   <th colspan="2">Total Salary Covered</th>
+</tr>
+</thead>
+
+<tbody>
+<% var salaryTotal = 0, salary = 0 %>
+<% collections.forEach(function(model) { %>
+<% salary = Number(employee_module.calculateSalary(Number(model.get('ton')), model.attributes)) %>
+<% salaryTotal += salary %>
+  <tr>
+     <td class="text-left"><%= model.get('fullname') %></td>
+     <td><%= Accounting.formatMoney(model.get('ton'), ' ', 2) %></td>
+     <td>
+         <%= Accounting.formatMoney(salary, ' ', 2) %>
+     </td>
+     <td width="40">php</td>
+  </tr>
+<% }) %>
+
+<tr>
+   <td></td>
+   <td class="text-right">TOTAL</td>
+   <td style="font-size: 14px; font-weight: bolder"><%= Accounting.formatMoney(salaryTotal, ' ', 2) %></td>
+   <td width="40">php</td>
+</tr>
+
+</tbody>
+</table>
+<br><br>
+
+<% }) %>
+</div>

@@ -1,0 +1,9 @@
+<% var no = 0 %>
+<% library.forEach(function(model) { %>
+<tr id="td-selected-<%= model.id %>">
+   <td width="1"><%= ++no %></td>
+   <td><%= model.fullname %> - <%= model.designation.substr(0,1).toUpperCase() %></td>
+   <td id="selected-emp-<%= model.id %>">0.0</td>
+   <td><a href="#removeSelectedEmp/<%= model.id %>"><span class="glyphicon glyphicon-remove"></span></a></td>
+</tr>
+<% }); %>
