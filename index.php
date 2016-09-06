@@ -10,7 +10,7 @@
       require 'app.php';
   });
 
-  $app->delete('/remove_desig/:id', function($id){
+  $app->delete('/designation/:id', function($id){
       $model = new Model();
       $rs = $model::delete(array(
          'table' => 'designations',

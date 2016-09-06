@@ -234,7 +234,7 @@ function($, _, Backbone, moment){
 						alert('cant remove this designation with existing employees');
 					}else {
 						var model = designations.get(desigId);
-						model.destroy({url: '/remove_desig/'+desigId});
+						model.destroy({url: 'index.php/designation/'+desigId});
 					}
 				}
 			}
