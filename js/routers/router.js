@@ -30,7 +30,8 @@ function($, _, Backbone, moment){
 			'license/change/:id': 'showChangeLicensedExp',
 			'restorePayroll/:id': 'showRestorePayroll',
 			'removeDesignation/:id': 'deleteDesig',
-			'eci-workers/delete/:id': 'deleteEciWorker'
+			'eci-workers/delete/:id': 'deleteEciWorker',
+			'removeSite/:id': 'deleteProjectSite'
 		},
 
 		defaultRoute: function(){
@@ -240,13 +241,17 @@ function($, _, Backbone, moment){
 			}
 		},
 
+		deleteProjectSite(i){
+		  	// var rs = 
+		},
+
 		deleteEciWorker(i){
 			var rs = eci_workers.where({id: i});
 			var ok = confirm('Are you sure you want to delete this employee ?');
 			if (ok) {
 				if (rs.length) {
 					var model = eci_workers.get(i);
-					model.destroy({url: '/eci_worker/'+i});
+					model.destroy({url: 'index.php/eci_worker/'+i});
 				}else {
 					this.navigate('eci-workers', true);
 				}
