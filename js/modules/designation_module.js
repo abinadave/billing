@@ -12,6 +12,8 @@ define(['underscore','backbone',
             var rs = designations.where({id: i});
             if (rs.length) {
                 return designations.get(i).get('name');
+            }else {
+                return '';
             }
         },
 

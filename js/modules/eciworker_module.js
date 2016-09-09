@@ -1,4 +1,9 @@
-define(['underscore','backbone'], function(_, Backbone) {
+define([
+    'underscore',
+    'backbone',
+    'modules/designation_module',
+    'modules/site_module'], 
+    function(_, Backbone, desig_module, site_module) {
    
     var Module = {
     	appendModalHire(){
@@ -8,8 +13,16 @@ define(['underscore','backbone'], function(_, Backbone) {
     	},
 
         search (value) {
+            var designation = '',  site = '';
             return eci_workers.filter(function(model) {
-                return model.get('fullname').toLowerCase().indexOf(value) !== -1 || model.get('rpd').indexOf(value) !== -1 || model.get('date_hired').toLowerCase().indexOf(value) !== -1;
+                designation = desig_module.getIndex(model.get('designation'));
+                site = site_module.getIndex(model.get('site'));
+
+                return model.get('fullname').toLowerCase().indexOf(value) !== -1 || 
+                model.get('rpd').indexOf(value) !== -1 || 
+                model.get('date_hired').toLowerCase().indexOf(value) !== -1 ||
+                designation.toLowerCase().indexOf(value) !== -1 ||
+                site.toLowerCase().indexOf(value) !== -1;
             });
         },
 

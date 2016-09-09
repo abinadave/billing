@@ -8,7 +8,7 @@ define(['underscore','backbone',
             if (rs.length) {
                 return sites.get(i).get('name');
             }else {
-                return 'not found: ' + i;
+                return '';
             }
         },
 

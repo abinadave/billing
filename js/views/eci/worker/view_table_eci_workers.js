@@ -87,11 +87,11 @@ define(['underscore','backbone',
 
                 self.$el.find('#search').on('keyup', function(event){
                     var value = $(this).val();
-                    // clearTimeout(self.timer);
-                    // self.timer = setTimeout(function() {
+                    clearTimeout(self.timer);
+                    self.timer = setTimeout(function() {
                         var list = eciworker_module.search(value.toLowerCase());
                         eciworker_module.appendList(new Backbone.Collection(list));
-                    // }, 100);
+                    }, 700);
                 });
 
             }
