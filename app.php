@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Garbarge Billing System</title>
-     <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap-theme.min.css">
+     <!-- <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap-theme.min.css"> -->
      <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
      <script data-main="js/main" src="js/require-jquery.js"></script>
      <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -29,10 +29,20 @@
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="#employees">Garbage Employees</a></li>
-              <li><a href="#eci-workers">ECI Employees</a></li>
-              <li><a href="#payrolls">Payrolls</a></li>
-              <li><a href="#restore">Previous Payroll</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employees <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#employees">Garbage Employees</a></li>
+                  <li><a href="#eci-workers">ECI Employees</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#payrolls">Current Payroll</a></li>
+                  <li><a href="#restore">Previous Payroll</a></li>
+                </ul>
+              </li>
 
              <?php if ($_SESSION['usertype'] === 'admin') { ?>
                 <li><a href="#systemActivity">System Activity</a></li>
