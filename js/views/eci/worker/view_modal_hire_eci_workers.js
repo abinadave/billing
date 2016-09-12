@@ -134,13 +134,13 @@ define([
                         if (Number(b.id) > 0) {
                             self.clearForm($btnSubmit);
                             router.alertify_success('Employee Saved');
-                            alert('success has id')
+                            // alert('success has id')
                         }else {
-                            alert('not success, no id');
+                            // alert('not success, no id');
                         }
                     }
                 });
-                alert('good');
+                // alert('good');
             },
 
             saveLicense(obj, i){
