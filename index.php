@@ -10,6 +10,16 @@
       require 'app.php';
   });
 
+  $app->post('/recycled_eciworker', function() use ($app){
+      $model = new Model();
+      $data = json_decode($app->request()->getBody(), true);
+      $id = $data['unique_id'];
+      unset($data['unique_id']);
+      $data['id'] = $id;
+      $data['table'] = 'recycled_eciworkers';
+      echo json_encode($model::save($data));
+  });
+
   $app->delete('/designation/:id', function($id){
       $model = new Model();
       $rs = $model::delete(array(
@@ -22,6 +32,9 @@
 
   $app->delete('/eci_worker/:id', function($id){
       $model = new Model();
+      // require_once 'class/class.eci_worker.php';
+      // $eci_worker = new Eci_worker();
+      // $emp = $
       $empRs = $model::delete(array( 'table' => 'eci_workers', 'prop' => 'id', 'id' => $id ));
       echo json_encode(array('success' => $empRs));
   });

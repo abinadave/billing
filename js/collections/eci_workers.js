@@ -12,6 +12,9 @@ define(['underscore','backbone','models/eci_worker',
     		});
     		this.on('remove', function(model){
     			console.log('Eci_worker successfully removed');
+                var eci_worker = _.omit(model.toJSON(),'id');
+                eci_worker.unique_id = model.get('id');
+                recycled_eciworkers.create(eci_worker);
                 this.redisplay();
     		});
     	},
