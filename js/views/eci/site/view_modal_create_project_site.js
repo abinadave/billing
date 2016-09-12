@@ -3,7 +3,8 @@ define([
 	'backbone',
 	'text!templates/eci/site/temp_modal_create_project_site.html',
 	'models/site',
-	'moment'], function(_, Backbone, template, Site, moment) {
+    'modules/site_module',
+	'moment'], function(_, Backbone, template, Site, site_module, moment) {
    
     var SubviewCPS = Backbone.View.extend({
     
@@ -13,7 +14,7 @@ define([
     
         	tagName: 'div',
     
-        	el: '#placeholder',
+        	el: '#placeholder-modal-create-proj-site',
     
         	template: _.template(template),
     
@@ -33,32 +34,41 @@ define([
     
         	onRender: function(){
                 var self = this;
-                $(function(){
-                    $('#modalProjectSite').modal('show');
-                });
+                
+                $(function() {
+                    $('#modalProjectSite').on('shown.bs.modal', function(event){
+                        site_module.appendSitesInModel(sites);
+                    });
+                }); 
+
                 $(function() {
                 	self.$el.find('form').submit(function(event) {
                 		event.preventDefault();
-                		var obj = { 
+                        
+                        var $btn = $(this).find(':submit');
+                        $btn.text('saving...').prop('disabled', true);
+                		
+                        var obj = { 
                 			name: self.$el.find('form').find('#name').val().toUpperCase(), 
                 			date_created: moment().format('MMMM DD, YYYY HH:mm:ss'),
                 			created_by: sessionStorage.getItem('id'),
 	                		table: 'sites' 
 	                	};
+
                 		var site = new Site(obj);
                 		sites.create(site.attributes, {
                 			success: function(arguments) {
                 				self.resetForm();
+                                $btn.text('save').prop('disabled', false)
                 			}
                 		});
+
+                        setTimeout(function() {
+                            $btn.text('saving').prop('disabled', false)
+                        }, 8000);
                 	});
                 });
 
-                $(function() {
-                	require(['modules/site_module'], function(site_module){
-                	    site_module.appendSitesInModel(sites);
-                	});
-                });
         	},
 
         	resetForm(){

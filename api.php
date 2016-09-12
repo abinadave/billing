@@ -3,8 +3,23 @@ session_start();
 	require 'assets/Slim/Slim/Slim.php';
     require 'class/class.functions.php';
     
+   
 	\Slim\Slim::registerAutoloader();
 	$app = new \Slim\Slim();
+
+	$app->delete('/site/:id', function($id) use ($app){
+		require 'class/class.site.php';
+		$site = new Site();
+		$deleted = false;
+		$model = $site::findOrFail($id);
+		if ($model !== null) {
+			$rs = $site->delete($model);
+			if ($rs) {
+				$deleted = $rs;
+			}
+		}
+		echo json_encode(array('deleted' => $deleted));
+	});
 
 	$app->delete('/rpayroll/:id', function($id) use ($app){
 		include_once 'class/class.rpayrolls.php';

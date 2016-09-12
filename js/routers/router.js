@@ -242,7 +242,22 @@ function($, _, Backbone, moment){
 		},
 
 		deleteProjectSite(i){
-		  	// var rs = 
+			this.navigate('eci-workers');
+		  	var rs = sites.where({id: i});
+		  	if (rs.length) {
+		  		var rsSite = eci_workers.where({site: i});
+		  		if (rsSite.length) {
+		  			alert("can't remove site with existing employee");
+		  		}else {
+		  			let sure = confirm('Are you sure ?');
+		  			if (sure) {
+		  				var model = sites.get(i);
+			  			model.destroy();
+		  			}
+		  		}
+		  	}else {
+		  		alert('No project site was found for id: '+i);
+		  	}
 		},
 
 		deleteEciWorker(i){

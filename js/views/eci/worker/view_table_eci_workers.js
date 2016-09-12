@@ -1,9 +1,19 @@
-define(['underscore','backbone',
+define([
+    'underscore','backbone',
 	'text!templates/eci/worker/temp_table_eci_workers.html',
     'modules/eciworker_module',
-    'modules/site_module',
     'modules/designation_module',
-    'modules/eciworker_module'], function(_, Backbone, template, eciworker_module, site_module, designation_module, eciworker_module) {
+    'modules/eciworker_module',
+    'views/eci/site/view_modal_create_project_site',
+    'views/eci/designation/view_modal_create_designation'
+    ], function(_, 
+        Backbone, 
+        template, 
+        eciworker_module, 
+        designation_module, 
+        eciworker_module,
+        SubviewModalProjSite,
+        SubviewModalDesignation) {
    
     var SubTable = Backbone.View.extend({
     
@@ -33,6 +43,12 @@ define(['underscore','backbone',
     
         	onRender: function(){
                 var self = this;
+
+                $(function() {
+                    new SubviewModalProjSite();
+                    new SubviewModalDesignation();
+                });
+
                 $(function(){
                     self.allEvents(self);
 
@@ -47,26 +63,6 @@ define(['underscore','backbone',
                             eciworker_module.appendList(eci_workers);
                         });
                     });
-
-                    // $.when(sites.fetch({url: 'api.php/get_order_by/sites/id/desc', silent: true})).then(function(response) {
-                    //     $.when(designations.fetch({url: 'api.php/get_order_by/designations/id/desc', silent: true})).then(function(response) {
-                            
-                    //         $.when(eci_workers.fetch({
-                    //             silent: true,
-                    //             url: 'api.php/get_order_by/eci_workers/id/desc'
-                    //         })).then(function(response) {
-                    //             eciworker_module.appendList(eci_workers);
-                    //         }, function(arguments) {
-                    //             console.log('failed to load Eci workers.');
-                    //         });
-                            
-                    //     }, function(arguments) {
-                    //         console.log('failed to load designations');
-                    //     });
-                    // }, function(arguments) {
-                    //     console.log('failed to load sites');
-                    // });   
-                    
                     
                 });
         	},
@@ -78,11 +74,11 @@ define(['underscore','backbone',
                 });
 
                 self.$el.find('#btnProjectSite').click(function(event) {
-                    site_module.appendCreateSite();
+                    $('#modalProjectSite').modal('show');
                 });
 
                 self.$el.find('#btnDesignation').click(function(event) {
-                    designation_module.appendModalCreate();
+                    $('#modalDesignations').modal('show');
                 });
 
                 self.$el.find('#search').on('keyup', function(event){
