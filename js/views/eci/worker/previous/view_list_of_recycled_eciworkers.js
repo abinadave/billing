@@ -41,9 +41,12 @@ define(['underscore','backbone',
     
         	onRender: function(){
                 var self = this;
-                $(function(){
-                    //jQuery
-                    
+                 $(function() {
+                    require(['modules/functions'], function(Fn){
+                        setTimeout(function() {
+                            Fn.datatablePlugin('#tbl-recycled-eciworkers');
+                        }, 500);
+                    });
                 });
         	}
     

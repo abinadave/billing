@@ -10,6 +10,27 @@
       require 'app.php';
   });
 
+  $app->get('/eci_worker/site/:id', function($id){
+      require 'class/class.eci_worker.php';
+      $eci_worker = new Eci_worker();
+      if ($id == 0) {
+           $eci_worker->FetchAll($id);
+       }else {
+           $eci_worker->FetchWhereSite($id);
+       }
+  });
+
+  $app->get('/eci_worker/designation/:id', function($id) use ($app){
+       require 'class/class.eci_worker.php';
+       $eci_worker = new Eci_worker();
+       if ($id == 0) {
+           $eci_worker->FetchAll($id);
+       }else {
+           $eci_worker->FetchWhereDesignation($id);
+       }
+       
+  });
+
   $app->get('/recycled_eciworker', function(){
      $model = new Model();
      $data = $model::select('recycled_eciworkers');

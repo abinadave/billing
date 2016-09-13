@@ -4,6 +4,7 @@ define([
     'modules/eciworker_module',
     'modules/designation_module',
     'modules/eciworker_module',
+    'modules/site_module',
     'views/eci/site/view_modal_create_project_site',
     'views/eci/designation/view_modal_create_designation',
     'views/eci/worker/previous/view_modal_recycled_eciworkers'
@@ -13,6 +14,7 @@ define([
         eciworker_module, 
         designation_module, 
         eciworker_module,
+        site_module,
         SubviewModalProjSite,
         SubviewModalDesignation,
         SubviewModalRecycledEmps) {
@@ -64,6 +66,9 @@ define([
                             'eci_workers'
                         ], function(){
                             eciworker_module.appendList(eci_workers);
+                            designation_module.appendDisplayByDesignation(designations);
+                            site_module.appendDisplayBySite(sites);
+                            // sites.print();
                         });
                     });
                     

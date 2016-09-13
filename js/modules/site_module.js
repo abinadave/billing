@@ -34,6 +34,14 @@ define(['underscore','backbone',
             });
         },
 
+        appendDisplayBySite(list){
+            require(['views/eci/site/view_display_by_site'], function(SubviewDisplayBySite){
+                new SubviewDisplayBySite({
+                    collection: list
+                });
+            });
+        },
+
         sortByName(list) {
             var proxy = new Obscura(list);
             return proxy.setSort('name','asc');

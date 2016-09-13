@@ -17,6 +17,15 @@ define(['underscore','backbone',
             }
         },
 
+        appendDisplayByDesignation(list){
+            require(['views/eci/designation/view_display_by_designation'], 
+                function(SubviewCboDesig){
+                new SubviewCboDesig({
+                    collection: list
+                });
+            });
+        },
+
     	appendModalCreate() {
     		require(['views/eci/designation/view_modal_create_designation'], function(SubviewMCD){
     		    new SubviewMCD();
