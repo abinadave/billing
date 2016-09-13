@@ -43,6 +43,8 @@ define([
         	onRender: function(){
                 var self = this;
                 $(function(){
+                    var $spanLength = $('#total-eci-workers');
+                    $spanLength.text(self.collection.length);
                     if (!self.collection.length) {
                         var output = '<tr><td colspan="6" style="font-weight: bolder" class="text-primary">No data was found in this table.</td></tr>';
                         self.$el.html(output);

@@ -31,7 +31,8 @@ function($, _, Backbone, moment){
 			'restorePayroll/:id': 'showRestorePayroll',
 			'removeDesignation/:id': 'deleteDesig',
 			'eci-workers/delete/:id': 'deleteEciWorker',
-			'removeSite/:id': 'deleteProjectSite'
+			'removeSite/:id': 'deleteProjectSite',
+			'showDeletedEciWorkers': 'openRemovedEciWorkers'
 		},
 
 		defaultRoute: function(){
@@ -293,6 +294,15 @@ function($, _, Backbone, moment){
 				this.navigate('eci-workers', true);
 			}
 			
+		},
+
+		openRemovedEciWorkers(){
+			var present = $('#tbl-recycled-eciworkers').length;
+			if (!present) {
+				this.navigate('eci-workers', true);
+			}else {
+				$('#modalRecycledEciWorkers').modal('show');
+			}
 		},
 
 		alertify_error: function(msg) {

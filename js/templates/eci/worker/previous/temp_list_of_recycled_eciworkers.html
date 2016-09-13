@@ -1,0 +1,30 @@
+<% library.forEach(function(model) { %>
+   <tr>
+      <td width="200"><%= model.fullname.toUpperCase() %></td>
+      <td class="text-right" width="100"><%= model.rpd %></td>
+      <td class="text-center"><%= desig_module.getIndex(model.designation) %></td>
+      <td class="text-center"><%= site_module.getIndex(model.site) %></td>
+      <td class="text-center"><%= model.date_hired %></td>
+      <td class="text-center"><%= licenseddriver_module.getDriversLicense(model.id) %>
+         <!-- <a href="#license/change/<%= model.id %>"><span class="fa fa-edit"></span></a> -->
+      </td>
+      <td class="text-center">
+          <%= contract_module.getContract(model.id) %> 
+          <!-- <a title="renew contract" href="#contract/renew/<%= model.id %>">
+              <i class="fa fa-edit"></i>
+          </a> -->
+      </td>
+      <td width="10">
+          <!-- <a class="text-danger" title="click this to update <%= model.fullname %>" href="#eci-workers/edit/<%= model.id %>">
+             <span class="fa fa-pencil"></span>
+             edit
+          </a> -->
+      </td>
+      <td width="10">
+          <!-- <a class="text-info" title="click this to remove <%= model.fullname %>" href="#eci-workers/delete/<%= model.id %>">
+             <span class="fa fa-remove"></span>
+             delete
+          </a> -->
+      </td>
+   </tr>
+<% }); %>

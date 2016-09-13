@@ -1,0 +1,43 @@
+    <div class="modal fade" id="modalRecycledEciWorkers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 90%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Eci workers (Resigned)</h4>
+                </div>
+                <div class="modal-body">
+ 
+                    <div style="font-size: 12px; overflow: auto" id="div-tbl-workers">
+                 
+                 <table class="table table-hover table-bordered table-condensed" id="tbl-recycled-eciworkers">
+                     <thead>
+                         <tr>
+                            <th>Fullname</th>
+                            <th class="text-right">Rate per day</th>
+                            <th class="text-center">Designation</th>
+                            <th class="text-center">Site Location</th>
+                            <th class="text-center">Date Hired</th>
+                            <th class="text-center">Licensed Expiration</th>
+                            <th class="text-center">Contract</th>
+                            <th colspan="2"></th>
+                         </tr>
+                     </thead>
+                     <tbody id="list-of-recycled-eciworkers">
+                         <tr>
+                             <td colspan="8">
+                                 <i class='fa fa-spinner fa-pulse fa-fw'></i>
+                                 <span class="sr-only">Loading...</span> Fetching data from the server....
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>
+              </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>

@@ -5,7 +5,8 @@ define([
     'modules/designation_module',
     'modules/eciworker_module',
     'views/eci/site/view_modal_create_project_site',
-    'views/eci/designation/view_modal_create_designation'
+    'views/eci/designation/view_modal_create_designation',
+    'views/eci/worker/previous/view_modal_recycled_eciworkers'
     ], function(_, 
         Backbone, 
         template, 
@@ -13,7 +14,8 @@ define([
         designation_module, 
         eciworker_module,
         SubviewModalProjSite,
-        SubviewModalDesignation) {
+        SubviewModalDesignation,
+        SubviewModalRecycledEmps) {
    
     var SubTable = Backbone.View.extend({
     
@@ -47,6 +49,7 @@ define([
                 $(function() {
                     new SubviewModalProjSite();
                     new SubviewModalDesignation();
+                    new SubviewModalRecycledEmps();
                 });
 
                 $(function(){
