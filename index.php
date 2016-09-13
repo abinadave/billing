@@ -10,6 +10,13 @@
       require 'app.php';
   });
 
+  $app->post('/reason', function() use ($app){
+    $data = json_decode($app->request()->getBody(), true);
+    $data['table'] = 'reasons';
+    $model = new Model();
+    echo json_encode($model::save($data));
+  });
+
   $app->post('/recycled_eciworker', function() use ($app){
       $model = new Model();
       $data = json_decode($app->request()->getBody(), true);

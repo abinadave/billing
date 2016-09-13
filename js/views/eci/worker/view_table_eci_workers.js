@@ -65,6 +65,13 @@ define([
                     });
                     
                 });
+
+                $(function() {
+                    let width = $(window).width();
+                    let height = $(window).height();
+                    self.$el.find('#tbl-eci-workers').width(width + 50);
+                    self.$el.find('#div-tbl-workers').height(height - 140);
+                });
         	},
 
             allEvents: function(self) {

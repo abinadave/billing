@@ -23,6 +23,7 @@ define(
 		'collections/licensed_drivers',
 		'collections/recycled_employees',
 		'collections/recycled_eciworkers',
+		'collections/reasons',
 
 		//router..
 		'routers/router'
@@ -51,6 +52,7 @@ define(
 		Licensed_drivers,
 		Recycled_employees,
 		Recycled_eciworkers,
+		Reasons,
 
 		//routers
 		Router
@@ -80,6 +82,7 @@ define(
 		licensed_drivers = new Licensed_drivers();
 		recycled_employees = new Recycled_employees();
 		recycled_eciworkers = new Recycled_eciworkers();
+		reasons = new Reasons();
 
 		//router..
 		router = new Router();

@@ -265,8 +265,27 @@ function($, _, Backbone, moment){
 			var ok = confirm('Are you sure you want to delete this employee ?');
 			if (ok) {
 				if (rs.length) {
-					var model = eci_workers.get(i);
-					model.destroy({url: 'index.php/eci_worker/'+i});
+					var body = prompt('Reason for resignation: ');
+					require(['models/reason'], function(Reason){
+					    var reason = new Reason({ 
+					    	worker_id: i,
+					    	body: body, 
+					    	date: moment().format('MMMM DD, YYYY HH:mm:ss') 
+					    });
+					    if (reason.isValid()) {
+							var model = eci_workers.get(i);
+							$.when(model.destroy({
+								url: 'index.php/eci_worker/'+i
+							})).then( (response) => {
+								reasons.create(reason.attributes);
+							}, (errorResp) => {
+								console.log('error: '+errorResp);
+							});
+							
+						}
+					});
+					
+					
 				}else {
 					this.navigate('eci-workers', true);
 				}
