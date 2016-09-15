@@ -10,6 +10,25 @@
       require 'app.php';
   });
 
+  $app->get('/notify_contract_day/latest', function(){
+      require 'class/class.notification.php';
+      $notification = new Notification();
+      $row = $notification->getNewestRow();
+      echo json_encode($row);
+  });
+
+  $app->get('/notify_contract_day', function() use ($app){
+      $model = new Model();
+      $data = $model::select('notify_contract_days');
+      echo json_encode($data);
+  });
+
+  $app->post('/notify_contract_day', function() use ($app){
+      $form = json_decode($app->request()->getBody(), true);
+      $model = new Model();
+      echo json_encode($model::save($form));
+  });
+
   $app->get('/eci_worker/site/:id', function($id){
       require 'class/class.eci_worker.php';
       $eci_worker = new Eci_worker();

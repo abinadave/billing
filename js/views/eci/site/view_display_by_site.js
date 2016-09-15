@@ -47,7 +47,7 @@ define([
                             eciworker_module.appendList(new Backbone.Collection(response));
                         }, (errorResp) => {
                             console.log('error: '+errorResp);
-                        })                        
+                        });                        
                     });
                 });
         	}

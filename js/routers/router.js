@@ -32,7 +32,9 @@ function($, _, Backbone, moment){
 			'removeDesignation/:id': 'deleteDesig',
 			'eci-workers/delete/:id': 'deleteEciWorker',
 			'removeSite/:id': 'deleteProjectSite',
-			'showDeletedEciWorkers': 'openRemovedEciWorkers'
+			'showDeletedEciWorkers': 'openRemovedEciWorkers',
+
+			'settings/contract': 'showContractSettings'
 		},
 
 		defaultRoute: function(){
@@ -303,6 +305,10 @@ function($, _, Backbone, moment){
 			}else {
 				$('#modalRecycledEciWorkers').modal('show');
 			}
+		},
+
+		showContractSettings(){
+			viewContractSetting.render();
 		},
 
 		alertify_error: function(msg) {

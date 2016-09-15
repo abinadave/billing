@@ -29,6 +29,7 @@
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+            
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employees <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -36,11 +37,20 @@
                   <li><a href="#eci-workers">ECI Employees</a></li>
                 </ul>
               </li>
+
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#payrolls">Current Payroll</a></li>
                   <li><a href="#restore">Previous Payroll</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#settings/contract">Contract</a></li>
+                  <li><a href="#settings/account">Account</a></li>
                 </ul>
               </li>
 

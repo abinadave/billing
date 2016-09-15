@@ -24,6 +24,10 @@ define(
 		'collections/recycled_employees',
 		'collections/recycled_eciworkers',
 		'collections/reasons',
+		'collections/notify_contract_days',
+
+		/* views */
+		'views/eci/contract/view_panel_contract_setting',
 
 		//router..
 		'routers/router'
@@ -53,6 +57,10 @@ define(
 		Recycled_employees,
 		Recycled_eciworkers,
 		Reasons,
+		Notify_contract_days,
+
+		//views
+		ViewContractSetting,
 
 		//routers
 		Router
@@ -83,6 +91,10 @@ define(
 		recycled_employees = new Recycled_employees();
 		recycled_eciworkers = new Recycled_eciworkers();
 		reasons = new Reasons();
+		notify_contract_days = new Notify_contract_days();
+
+		//views
+		viewContractSetting = new ViewContractSetting();
 
 		//router..
 		router = new Router();
