@@ -3,9 +3,10 @@ define([
 	'backbone',
 	'text!templates/eci/contract/temp_panel_contract_settings.html',
 	'moment',
-	'modules/functions'
+	'modules/functions',
+	'modules/expiration_module'
 	], 
-	function(_, Backbone, template, moment, fn) {
+	function(_, Backbone, template, moment, fn, expiration_module) {
    
     var Subview = Backbone.View.extend({
     
@@ -56,6 +57,8 @@ define([
                 $(function() {
                 	fn.loadData([
                 		'contracts',
+                		'designations',
+                		'sites',
                 		'eci_workers',
                 		'notify_contract_days'
                 	], function(){
@@ -73,8 +76,14 @@ define([
         		.done(function(data) {
         			var json = $.parseJSON(data);
         			if (Number(json.days) > 0) {
-        				self.getNearlyExpiredContract(json.days);
         				self.$el.find('form :input').val(json.days);
+        				var listOfEmps = expiration_module.getNearlyExpiredContract(json.days);
+        				setTimeout(function() {
+	        				expiration_module.appendNearlyExpiredWorkers(
+	        					new Backbone.Collection(listOfEmps),
+	        					new Backbone.Model({ days: json.days})
+	        				);
+        				}, 700);
         			}
         		})
         		.fail(function() {
@@ -82,26 +91,7 @@ define([
         		})
         	},
 
-        	getNearlyExpiredContract(rule_days){
-        		var self = this;
-        		var date_now = moment().format('MMMM DD, YYYY');
-        		eci_workers.toJSON().filter(function(model) {
-        			var contractFound = self.findLatestContract(model.id);
-        			if (contractFound.length) {
-        				var contract = contractFound[0];
-        				var date_end = contract.get('end');
-        				var diffInDays = moment(date_end).diff(moment().format('MMMM DD, YYYY'), 'days'); // 1 day
-        				console.log('remaining days: ['+diffInDays + ']  worker_id: [' + contract.get('worker_id') + ']');
-        			}
-        		});
-        	},
-
-        	findLatestContract(worker_id){
-        		var arrOfContracts = contracts.where({worker_id: worker_id}, false);
-        		var largest = 0;
-    			arrOfContracts.forEach(function(model) { if (Number(model.id) > largest) { largest = Number(model.id); } });
-    			return contracts.where({id: largest.toString()});
-        	}
+        	
     
     });
    
