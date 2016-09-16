@@ -72,10 +72,12 @@ define([
         	displayExpiration(model){
         		var self = this;
         		var end = model.end;
-        		console.log(end);
         		return moment(model.end).fromNow();
-        			// return 'negative: '+ model.diffInDays;
-        	}
+        	},
+
+            daysLeftB4Expiration(model){
+                return model.diffInDays + ' days';
+            }
     
     });
    

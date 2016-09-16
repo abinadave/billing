@@ -40,6 +40,8 @@ define([
                     //jQuery
                     self.$el.find('#form-notify-contract').submit(function(event) {
                     	event.preventDefault();
+                        var $btn = $(this).find(':submit');
+                        $btn.prop('disabled', true).text('saving....');
                     	var obj = {
                     		days: $(this).find(':input').val(),
                     		date: moment().format('MMMM DD, YYYY HH:mm:ss'),
@@ -48,9 +50,15 @@ define([
                     	};
                     	$.when(notify_contract_days.create(obj)).then((response) => {
                     		router.alertify_success('process completed.');
+                            setTimeout(function() {
+                                $btn.prop('disabled', false).text('save');
+                            }, 1000);
                     	}, (errorResp) => {
                     		console.log(errorResp);
-                    	});                    	
+                    	});       
+                        setTimeout(function() {
+                            $btn.prop('disabled', false).text('save');
+                        }, 8000);             	
                     });
                 });
 
@@ -77,6 +85,7 @@ define([
         			var json = $.parseJSON(data);
         			if (Number(json.days) > 0) {
         				self.$el.find('form :input').val(json.days);
+                        self.$el.find('#days-b4-exp').text(json.days);
         				var listOfEmps = expiration_module.getNearlyExpiredContract(json.days);
         				setTimeout(function() {
 	        				expiration_module.appendNearlyExpiredWorkers(

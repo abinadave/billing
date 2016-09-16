@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             Contract notification
         </div>
@@ -8,15 +8,18 @@
                <label>Notify me within (days)
                    <input type="text" class="form-control" style="" autofocus>
                </label>
-               <button class="btn btn-primary" type="submit">Save</button>
+               <h5 class="pull-right">The system will notify you <span class="badge" id="days-b4-exp"></span> day/s before contract expiration</h5> 
+               <button class="btn btn-default btn-sm" type="submit">Save</button>
             </form>
             <hr>
+            <label class="text-primary">Expired Contract <span class="badge">0</span></label>
             <table class="table table-hover table-borderd">
                 <thead>
                     <tr>
                         <th>Fullname</th>
                         <th class="text-center">Expiration</th>
                         <th>Latest Contract</th>
+                        <th class="text-center">Days left</th>
                         <th class="text-center">Designation</th>
                         <th class="text-center">Site (Location)</th>
                     </tr>
