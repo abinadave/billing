@@ -9,7 +9,8 @@
          <a href="#license/change/<%= model.id %>"><span class="fa fa-edit"></span></a>
       </td>
       <td class="text-center">
-          <%= contract_module.getContract(model.id) %> 
+          <!-- <%= contract_module.getContract(model.id) %>  -->
+          <%= self.displayLatestContract(model.id) %>
           <a title="renew contract" href="#contract/renew/<%= model.id %>">
               <i class="fa fa-edit"></i>
           </a>
@@ -17,13 +18,11 @@
       <td width="10">
           <a class="text-danger" title="click this to update <%= model.fullname %>" href="#eci-workers/edit/<%= model.id %>">
              <span class="fa fa-pencil"></span>
-             <!-- edit -->
           </a>
       </td>
       <td width="10">
           <a class="text-info" title="click this to remove <%= model.fullname %>" href="#eci-workers/delete/<%= model.id %>">
              <span class="fa fa-remove"></span>
-             <!-- delete -->
           </a>
       </td>
    </tr>

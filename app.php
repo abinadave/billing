@@ -47,10 +47,10 @@
               </li>
 
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Expiration <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#settings/contract">Contract</a></li>
-                  <li><a href="#settings/account">Account</a></li>
+                  <li><a href="#expiration/contract">Contract</a></li>
+                  <li><a href="#expiration/license">License</a></li>
                 </ul>
               </li>
 

@@ -40,10 +40,14 @@ define([
         	onRender: function(){
                 var self = this;
                 $(function(){
-                    //jQuery
+
 
                 });
         	},
+
+            getExpiredContracts(){
+                
+            },
 
         	displayContract(worker_id){
         		let rsContract = expiration_module.findLatestContract(worker_id);

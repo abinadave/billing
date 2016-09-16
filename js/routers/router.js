@@ -34,7 +34,8 @@ function($, _, Backbone, moment){
 			'removeSite/:id': 'deleteProjectSite',
 			'showDeletedEciWorkers': 'openRemovedEciWorkers',
 
-			'settings/contract': 'showContractSettings'
+			'expiration/contract': 'showContractExpiration',
+			'expiration/license' : 'showLicenseExpiration'
 		},
 
 		defaultRoute: function(){
@@ -307,8 +308,12 @@ function($, _, Backbone, moment){
 			}
 		},
 
-		showContractSettings(){
+		showContractExpiration(){
 			viewContractSetting.render();
+		},
+
+		showLicenseExpiration(){
+			console.log('license expiration');
 		},
 
 		alertify_error: function(msg) {
