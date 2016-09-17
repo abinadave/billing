@@ -28,6 +28,7 @@ define(
 
 		/* views */
 		'views/eci/contract/view_panel_contract_setting',
+		'views/eci/license/view_panel_license_expiration',
 
 		//router..
 		'routers/router'
@@ -61,6 +62,7 @@ define(
 
 		//views
 		ViewContractSetting,
+		ViewLicenseExpiration,
 
 		//routers
 		Router
@@ -95,6 +97,7 @@ define(
 
 		//views
 		viewContractSetting = new ViewContractSetting();
+		viewLicenseExpiration = new ViewLicenseExpiration();
 
 		//router..
 		router = new Router();

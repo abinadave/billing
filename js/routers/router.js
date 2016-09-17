@@ -313,7 +313,7 @@ function($, _, Backbone, moment){
 		},
 
 		showLicenseExpiration(){
-			console.log('license expiration');
+			viewLicenseExpiration.render();
 		},
 
 		alertify_error: function(msg) {
