@@ -2,17 +2,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
            <b>Drivers License</b>
-               <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before expiration</p>
-
+               <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before expiration (<a href="#changeLicenseNotificationDay">change</a>)</p>
         </div>
         <div class="panel-body" style="font-size: 12px">
-            <form>
-               <label>Remind be before (days): 
-                   <input type="text" class="form-control" placeholder="Days before notification">
-               </label>
-               <button type="submit" class="btn btn-info">Save</button>
-               <hr>
-            </form>
+           
             <table class="table table-hover table-bordered" id="tbl-license-expiration">
                <thead>
                   <tr>
@@ -32,3 +25,4 @@
         </div>
     </div>
 </div>
+<div id="placeholder-modal-license-days"></div>

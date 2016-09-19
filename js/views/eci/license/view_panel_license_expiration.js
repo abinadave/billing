@@ -2,8 +2,10 @@ define(['underscore','backbone',
 	'text!templates/eci/license/temp_panel_license_expiration.html',
 	'modules/functions',
     'modules/licenseddriver_module',
-	'moment'], 
-	function(_, Backbone, template, FN, LICENSEDDRIVER_MODULE, moment) {
+	'moment',
+    'views/eci/license/view_modal_change_license_notify_day'], 
+	function(_, Backbone, template, FN, LICENSEDDRIVER_MODULE, moment,
+        SubviewModalLicenseDay) {
    
     var Subview = Backbone.View.extend({
     
@@ -51,23 +53,7 @@ define(['underscore','backbone',
                 });
 
                 $(function() {
-                	self.$el.find('form').submit(function(event) {
-                		event.preventDefault();
-                		var days = $(this).find(':input').val();
-                		var objToSave = {
-                			table: 'notify_license_days',
-                			days: parseInt(days),
-                			date: moment().format('MMMM DD, YYYY'),
-                			created_by: sessionStorage.getItem('id')
-                		};
-                        
-                        $.when(notify_license_days.create(objToSave)).then((response) => {
-                            self.$el.find('#rule-days').text(objToSave.days);
-                        }, (errorResp) => {
-                            console.log('error when saving: '+errorResp);
-                        });
-
-                	});
+                    new SubviewModalLicenseDay();
                 });
         	},
 

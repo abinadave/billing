@@ -35,7 +35,9 @@ function($, _, Backbone, moment){
 			'showDeletedEciWorkers': 'openRemovedEciWorkers',
 
 			'expiration/contract': 'showContractExpiration',
-			'expiration/license' : 'showLicenseExpiration'
+			'expiration/license' : 'showLicenseExpiration',
+
+			'changeLicenseNotificationDay': 'updateLicenseNotifyDays'
 		},
 
 		defaultRoute: function(){
@@ -314,6 +316,15 @@ function($, _, Backbone, moment){
 
 		showLicenseExpiration(){
 			viewLicenseExpiration.render();
+		},
+
+		updateLicenseNotifyDays(){
+			let present = $('#tbl-license-expiration').length;
+			if (!present) {
+				this.navigate('expiration/license',  true);
+			}else {	
+				$('#modal-change-license-notify-days').modal('show');
+			}
 		},
 
 		alertify_error: function(msg) {
