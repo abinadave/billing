@@ -1,13 +1,12 @@
-<div class="col-lg-12">
-    <div class="panel panel-info">
+<div class="container">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            Eci workers
-            <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before contract expiration</p>
+            <b>Contracts</b>
+            <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before contract expiration (<a id="btnShowModal" style="cursor: pointer">change</a>)</p>
         </div>
         <div class="panel-body" style="font-size: 12px">
             <label class="text-primary" style="">Expired Contract <span class="badge" id="expired-contract">0</span></label> &nbsp;&nbsp;/&nbsp;&nbsp;
             <label class="text-primary" style="">Total records <span class="badge" id="total-records">0</span></label>
-            <button class="btn btn-primary btn-sm pull-right" id="btnShowModal">Notify days</button>
             <hr>
 
             <table class="table table-hover table-borderd" id="tbl-contract-expiration">

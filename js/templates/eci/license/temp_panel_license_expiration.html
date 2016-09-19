@@ -2,16 +2,18 @@
     <div class="panel panel-default">
         <div class="panel-heading">
            <b>Drivers License</b>
-               <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before expiration (<a href="#changeLicenseNotificationDay">change</a>)</p>
+              <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before expiration (<a href="#changeLicenseNotificationDay">change</a>)</p>
         </div>
         <div class="panel-body" style="font-size: 12px">
-           
+            <label class="text-danger">Expired License <span id="expired-license" class="badge">0</span></label>
+            &nbsp;&nbsp;/&nbsp;&nbsp;
+            <label class="text-info">Total records <span id="nearly-expired" class="badge">0</span></label>
+            <hr/>
             <table class="table table-hover table-bordered" id="tbl-license-expiration">
                <thead>
                   <tr>
                     <th>Fullname</th>
                     <th>License Expiration</th>
-                    <!-- <th class="text-center">Expiration form now</th> -->
                     <th style="text-align: center">Designation</th>
                     <th style="text-align: center">Site Location</th>
                     <th style="text-align: center">status</th>

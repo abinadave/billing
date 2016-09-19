@@ -9,10 +9,30 @@ define(['underscore','backbone',
                 $.get('index.php/notify_license_days/latest_id', function(data) {
                     var row = $.parseJSON(data);
                     var list = self.getNearlyExpiredWorkers(row.days);
+                    
                     self.appendNearlyExpiredWorkers(
                         new Backbone.Collection(list)
                     );
+
+                    var obj = self.getExpiredLicense(list);
+                    $('#expired-license').text(obj.expired);
+                    $('#nearly-expired').text(obj.nearly);
                 });
+            },
+
+            getExpiredLicense(list){
+                var expired = 0, nearly = 0;
+                list.forEach(function(model) {
+                    if (model.diffInDays <= 0) {
+                        ++expired;
+                    }else {
+                        ++nearly;
+                    }
+                });
+                return {
+                    expired: expired,
+                    nearly: nearly
+                };
             },
 
             getNearlyExpiredWorkers(rule_days){

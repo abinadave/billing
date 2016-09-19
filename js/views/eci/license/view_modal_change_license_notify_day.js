@@ -33,6 +33,7 @@ define([
     
         	onRender: function(){
                 var self = this;
+                
                 $(function(){
                     //jQuery
                     $('#modal-change-license-notify-days').on('hidden.bs.modal', function(event) {
