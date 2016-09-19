@@ -6,22 +6,21 @@
         <div class="panel-body" style="font-size: 12px">
             <form id="form-notify-contract">
                <label>Notify me within (days)
-                   <input type="text" class="form-control" style="" autofocus>
+                   <input id="days-b4-expiration" type="text" class="form-control" style="" autofocus>
                </label>
                <h5 style="font-weight: bolder" class="pull-right">The system will notify you <span class="" id="days-b4-exp"></span> day/s before contract expiration</h5> 
                <button class="btn btn-default btn-sm" type="submit">Save</button>
             </form>
             <hr>
-            <label class="text-primary">Expired Contract <span class="badge">0</span></label>
+            <label class="text-primary">Expired Contract <span class="badge" id="expired-contract">0</span></label>
             <table class="table table-hover table-borderd">
                 <thead>
                     <tr>
                         <th>Fullname</th>
-                        <th class="text-center">Expiration</th>
                         <th>Latest Contract</th>
-                        <th class="text-center">Days left</th>
                         <th class="text-center">Designation</th>
                         <th class="text-center">Site (Location)</th>
+                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody id="list-of-nearly-expired-eci-workers"></tbody>

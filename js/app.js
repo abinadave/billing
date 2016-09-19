@@ -25,6 +25,7 @@ define(
 		'collections/recycled_eciworkers',
 		'collections/reasons',
 		'collections/notify_contract_days',
+		'collections/notify_license_days',
 
 		/* views */
 		'views/eci/contract/view_panel_contract_setting',
@@ -59,6 +60,7 @@ define(
 		Recycled_eciworkers,
 		Reasons,
 		Notify_contract_days,
+		Notify_license_days,
 
 		//views
 		ViewContractSetting,
@@ -94,6 +96,7 @@ define(
 		recycled_eciworkers = new Recycled_eciworkers();
 		reasons = new Reasons();
 		notify_contract_days = new Notify_contract_days();
+		notify_license_days = new Notify_license_days();
 
 		//views
 		viewContractSetting = new ViewContractSetting();

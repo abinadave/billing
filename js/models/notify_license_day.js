@@ -1,25 +1,30 @@
 define(['underscore','backbone'], function(_, Backbone) {
-
-    var Notify_contract_day = Backbone.Model.extend({
+   
+    var Notify_license_day = Backbone.Model.extend({
     
     	initialize: function(){
     		this.on('change', function(){
-                require(['modules/expiration_module'], function(expiration_module){
-                    expiration_module.displayNearlyExpired();
+                require(['modules/licenseddriver_module'], function(LDM){
+                    LDM.displayNearlyExpiredWorkers();
                 });
     		});
     		this.on('invalid', function(model, error){
                 router.alertify_error(error);
             });
     	},
-   
+    
+    	defaults: {
+    		
+    	},
+    
         validate: function(attrs, options) {
             if (!attrs.days) {
-               return "day of notification is required";
+               return "days before notification is required";
             }
         }
     
+    
     });
    
-    return Notify_contract_day; 
+    return Notify_license_day; 
 });

@@ -4,7 +4,36 @@ define([
 	'moment'
 	], function(_, Backbone, moment) {
    
+    /* This module is for nofity_contract_ days only */
     var Module = {
+
+        displayNearlyExpired(){
+            $.ajax({
+                url: 'index.php/notify_contract_day/latest',
+                type: 'GET'
+            }).done(function(data) {
+                var json = $.parseJSON(data);
+                if (Number(json.days) > 0) {
+                    $('#days-b4-expiration').val(json.days);
+                    $('#days-b4-exp').text(json.days);
+                    var listOfEmps = Module.getNearlyExpiredContract(json.days);
+                    var expired = Module.getExpiredContracts(listOfEmps);
+                    $('#expired-contract').text(expired);
+                    setTimeout(function() {
+                        Module.appendNearlyExpiredWorkers(
+                            new Backbone.Collection(listOfEmps),
+                            new Backbone.Model({ days: json.days})
+                        );
+                    }, 700);
+                }
+            }).fail(function() {
+                console.log("error in fetching latest contract day");
+            });
+        },
+
+        getExpiredContracts(listOfEmps){ 
+            var negative = 0; listOfEmps.forEach(function(model) { if (model.diffInDays < 0) { ++negative; } }); return negative;
+        },
     	
     	appendNearlyExpiredWorkers(list, model){
     		require(['views/eci/worker/nearly_expired/view_list_of_nearly_expired_eci_workers'], 

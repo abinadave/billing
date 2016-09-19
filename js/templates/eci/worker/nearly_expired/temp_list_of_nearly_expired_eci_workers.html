@@ -1,10 +1,9 @@
 <% library.forEach(function(model) { %>
 <tr>
     <td style="font-weight: bold"><%= model.fullname %></td>
-    <td class="text-center"><%= self.displayExpiration(model) %></td>
     <td><%= self.displayContract(model.id) %></td>
-    <td class="text-center"><%= self.daysLeftB4Expiration(model) %></td>
     <td class="text-center"><%= self.displayDesig(model.designation) %></td>
     <td class="text-center"><%= self.displaySite(model.site) %></td>
+    <td class="text-center"><%= self.daysLeftB4Expiration(model) %></td>
 </tr>
 <% }); %>

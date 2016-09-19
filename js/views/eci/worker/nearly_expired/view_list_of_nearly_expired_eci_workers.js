@@ -80,7 +80,13 @@ define([
         	},
 
             daysLeftB4Expiration(model){
-                return model.diffInDays + ' days';
+                var self = this;
+                if (Number(model.diffInDays) < 0) {
+                    return '<b class="text-danger">expired </b>' + self.displayExpiration(model);
+                }else {
+                    return '<b class="text-primary">will expire in '+ model.diffInDays +  ' days </b>';
+                }
+                
             }
     
     });

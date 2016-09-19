@@ -1,15 +1,16 @@
 <div class="container">
-  <div class="col-md-8">
     <div class="panel panel-default">
         <div class="panel-heading">
-           Expired Drivers License
+           <b>Drivers License</b>
+               <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before expiration</p>
+
         </div>
         <div class="panel-body" style="font-size: 12px">
             <form>
-               <label>Remind be before: 
+               <label>Remind be before (days): 
                    <input type="text" class="form-control" placeholder="Days before notification">
                </label>
-               <button class="btn btn-info">Save</button>
+               <button type="submit" class="btn btn-info">Save</button>
                <hr>
             </form>
             <table class="table table-hover table-bordered">
@@ -17,15 +18,17 @@
                   <tr>
                     <th>Fullname</th>
                     <th>License Expiration</th>
-                    <th>Designation</th>
-                    <th>Site Location</th>
+                    <!-- <th class="text-center">Expiration form now</th> -->
+                    <th style="text-align: center">Designation</th>
+                    <th style="text-align: center">Site Location</th>
+                    <th style="text-align: center">status</th>
                   </tr>
                </thead>
+               <tbody id="list-of-nearly-expired-licensed-drivers"></tbody>
             </table>
         </div>
         <div class="panel-footer">
             Panel Footer
         </div>
     </div>
-   </div> 
 </div>

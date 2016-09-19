@@ -6,8 +6,28 @@
   \Slim\Slim::registerAutoloader();
   $app = new \Slim\Slim();
 
+  $app->get('/notify_license_days/latest_id', function(){
+      require 'class/class.notification.php';
+      $notification = new Notification();
+      $row = $notification->getNewestRowLicense();
+      echo json_encode($row);
+  });
+
   $app->get('/', function(){
       require 'app.php';
+  });
+
+  $app->get('/nofity_license_day', function() use ($app){
+      require 'class/class.notification.php';
+      $notification = new Notification();
+      $data = $notification->getLicenseNotificationDays();
+      echo json_encode($data);
+  });
+
+  $app->post('/notify_license_day', function() use ($app){
+      $form = json_decode($app->request()->getBody(), true);
+      $model = new Model();
+      echo json_encode($model::save($form));
   });
 
   $app->get('/notify_contract_day/latest', function(){

@@ -1,0 +1,9 @@
+<% library.forEach(function(model) { %>
+   <tr>
+       <td><%= model.fullname %></td>
+       <td><%= model.exp_date %></td>
+       <td class="text-center"><%= self.getDesignation(model.designation) %></td>
+       <td class="text-center"><%= self.getSiteLocation(model.site) %></td>
+       <td class="text-center"><%= self.determinIfExpired(model) %></td>
+   </tr>
+<% }); %>

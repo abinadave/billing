@@ -20,5 +20,21 @@ class Notification
 			return array('days' => 0, 'id' => 0);
 		}
 	}
+
+	public function getNewestRowLicense(){
+		$sql = "SELECT * FROM notify_license_days ORDER BY id DESC LIMIT 1";
+		$query = self::$handler->query($sql);
+		if ($query->rowCount() > 0) {
+			return $query->fetch(PDO::FETCH_ASSOC);
+		}else {
+			return array('days' => 0, 'id' => 0);
+		}
+	}
+
+	public function getLicenseNotificationDays(){
+		$sql = "SELECT * FROM notify_license_days ORDER BY id DESC";
+		$query = self::$handler->query($sql);
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
 }
 
