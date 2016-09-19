@@ -40,8 +40,11 @@ define([
         	onRender: function(){
                 var self = this;
                 $(function(){
-
-
+                    require(['modules/functions'], function(Fn){
+                        setTimeout(function() {
+                            Fn.datatablePlugin('#tbl-contract-expiration');
+                        }, 500);
+                    });
                 });
         	},
 

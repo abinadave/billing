@@ -38,7 +38,11 @@ define([
                 var self = this;
                 $(function(){
                     //jQuery
-                    
+                    require(['modules/functions'], function(Fn){
+                        setTimeout(function() {
+                            Fn.datatablePlugin('#tbl-license-expiration');
+                        }, 500);
+                    });
                 });
         	},
 
