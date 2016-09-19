@@ -15,7 +15,7 @@ define([
                 var json = $.parseJSON(data);
                 if (Number(json.days) > 0) {
                     $('#days-b4-expiration').val(json.days);
-                    $('#days-b4-exp').text(json.days);
+                    $('#rule-days').text(json.days);
                     var listOfEmps = Module.getNearlyExpiredContract(json.days);
                     var expired = Module.getExpiredContracts(listOfEmps);
                     $('#expired-contract').text(expired);

@@ -1,18 +1,15 @@
 <div class="col-lg-12">
     <div class="panel panel-info">
         <div class="panel-heading">
-            List of employees
+            Eci workers
+            <p class="pull-right">The system will notify you, <span id="rule-days"></span> days before contract expiration</p>
         </div>
         <div class="panel-body" style="font-size: 12px">
-            <form id="form-notify-contract">
-               <label>Notify me within (days)
-                   <input id="days-b4-expiration" type="text" class="form-control" style="" autofocus>
-               </label>
-               <h5 style="font-weight: bolder" class="pull-right">The system will notify you <span class="" id="days-b4-exp"></span> day/s before contract expiration</h5> 
-               <button class="btn btn-default btn-sm" type="submit">Save</button>
-            </form>
+            <label class="text-primary" style="">Expired Contract <span class="badge" id="expired-contract">0</span></label> &nbsp;&nbsp;/&nbsp;&nbsp;
+            <label class="text-primary" style="">Total records <span class="badge" id="total-records">0</span></label>
+            <button class="btn btn-primary btn-sm pull-right" id="btnShowModal">Notify days</button>
             <hr>
-            <label class="text-primary">Expired Contract <span class="badge" id="expired-contract">0</span></label>
+
             <table class="table table-hover table-borderd" id="tbl-contract-expiration">
                 <thead>
                     <tr>
@@ -31,3 +28,4 @@
         </div>
     </div>
 </div>
+<div id="placeholder-notify-contract-days"></div>

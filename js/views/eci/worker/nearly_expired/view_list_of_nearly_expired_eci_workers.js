@@ -46,6 +46,10 @@ define([
                         }, 500);
                     });
                 });
+
+                $(function() {
+                    $('#total-records').text(self.collection.length);
+                });
         	},
 
             getExpiredContracts(){
