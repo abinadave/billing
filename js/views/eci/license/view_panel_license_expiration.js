@@ -43,8 +43,8 @@ define(['underscore','backbone',
                 	], function(){
                         $.get('index.php/notify_license_days/latest_id', function(response) {
                             var row = $.parseJSON(response);
-                            self.$el.find('form :input').val(row.id);
-                            self.$el.find('#rule-days').text(row.id)
+                            self.$el.find('form :input').val(row.days);
+                            self.$el.find('#rule-days').text(row.days);
                             LICENSEDDRIVER_MODULE.displayNearlyExpiredWorkers();
                         });
                     });
