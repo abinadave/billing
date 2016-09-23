@@ -5,8 +5,10 @@
   <title>Garbarge Billing System</title>
      <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
      <script data-main="js/main" src="js/require-jquery.js"></script>
+     
      <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
      <link rel="stylesheet" type="text/css" href="assets/font-awesome-4.6.1/css/font-awesome.min.css">
+     
      <link rel="shortcut icon" href="assets/favico.png" />
 </head>
 <body>
@@ -77,17 +79,26 @@
 <head>
   <title>ECI Billing System</title>
    <script data-main="js/main" src="js/require-jquery.js"></script>
-   <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
-   <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-4.0.0-alpha.3/dist/css/bootstrap.min.css">
+   <script src="assets/bootstrap-4.0.0-alpha.3/dist/js/bootstrap.min.js"></script>
    <link rel="shortcut icon" href="assets/favico.png" />
 </head>
-<style type="text/css">
-  body {
-     
-  }
-</style>
-<body style="background-image: url('assets/COMPACTOR%202.bmp')">
-    <div id="main"></div>
+<!-- background-image: url('assets/COMPACTOR%202.bmp') -->
+<body style="background-image: url('assets/construction_patterns.jpg')">
+
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#">Ezjones Constructions Inc.</a>
+      <ul class="nav navbar-nav">
+        
+      </ul>
+    </nav>
+
+    <div>
+
+      <div class="starter-template" id="main"></div>
+
+    </div>
+
 </body>
 </html>
 <?php } ?>
