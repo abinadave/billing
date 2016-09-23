@@ -76,16 +76,11 @@ function($, _, Backbone, moment){
 		},
 
 		showEmployees: function() {
-			require(['modules/employee_module'], function(empMod){
-			    empMod.appendTable();
-			    
-			});
+			viewTblEmployees.render();
 		},	
 
-		showPayrolls: function(argument) {
-			require(['views/payroll/view_table_payroll'], function(Subview){
-			    var view = new Subview();
-			});
+		showPayrolls: function() {
+			viewTblPayrolls.render();
 		},
 
 		updatePayroll: function(id) {
@@ -135,9 +130,7 @@ function($, _, Backbone, moment){
 		},
 
 		restorePayrolls: function () {
-			require(['modules/rpayroll_module'], function(rpayroll_module){
-			    rpayroll_module.appendTable();
-			});
+			viewTblRestorePayrolls.render();
 		},
 
 		deleteEmp: function(i) {
@@ -174,10 +167,11 @@ function($, _, Backbone, moment){
 		},
 
 		showEciWorkers: function() {
-			require(['views/eci/worker/view_table_eci_workers'], 
-				function(SubviewTEW){
-			    var view = new SubviewTEW();
-			});
+			viewTblEciWorkers.render();
+			// require(['views/eci/worker/view_table_eci_workers'], 
+			// 	function(SubviewTEW){
+			//     var view = new SubviewTEW();
+			// });
 		},
 
 		updateEciWorker: function(i) {

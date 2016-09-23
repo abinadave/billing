@@ -30,6 +30,10 @@ define(
 		/* views */
 		'views/eci/contract/view_panel_contract_setting',
 		'views/eci/license/view_panel_license_expiration',
+		'views/eci/worker/view_table_eci_workers',
+		'views/payroll/view_table_payroll',
+		'views/restore/view_table_restore_payrolls',
+		'views/employee/view_table_employee',
 
 		//router..
 		'routers/router'
@@ -65,6 +69,10 @@ define(
 		//views
 		ViewContractSetting,
 		ViewLicenseExpiration,
+		ViewTblEciWorkers,
+		ViewTblPayrolls,
+		ViewTblResporePayrolls,
+		ViewTblEmployees,
 
 		//routers
 		Router
@@ -101,6 +109,10 @@ define(
 		//views
 		viewContractSetting = new ViewContractSetting();
 		viewLicenseExpiration = new ViewLicenseExpiration();
+		viewTblEciWorkers = new ViewTblEciWorkers();
+		viewTblPayrolls = new ViewTblPayrolls();
+		viewTblRestorePayrolls = new ViewTblResporePayrolls();
+		viewTblEmployees = new ViewTblEmployees();
 
 		//router..
 		router = new Router();

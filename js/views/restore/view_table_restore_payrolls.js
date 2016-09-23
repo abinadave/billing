@@ -10,7 +10,7 @@ define(['underscore','backbone',
     var SubRestore = Backbone.View.extend({
     
         	initialize: function(){
-                this.render();
+                // this.render();
         	},
     
         	tagName: 'div',

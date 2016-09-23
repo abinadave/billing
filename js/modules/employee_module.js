@@ -71,12 +71,6 @@ define(['underscore','backbone',
             var proxy = new Obscura(employees);
             return proxy.filterBy('selected', {selected: true});
         },
-        
-    	appendTable: function(arguments) {
-    		require(['views/employee/view_table_employee'], function(Subview){
-    		    var view = new Subview();
-    		});
-    	},
 
         appendList: function(list) {
             require(['views/employee/view_list_of_employees'], function(Subview){

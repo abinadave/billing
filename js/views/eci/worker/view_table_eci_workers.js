@@ -22,7 +22,7 @@ define([
     var SubTable = Backbone.View.extend({
     
         	initialize: function(){
-                this.render();
+                // this.render();
                 this.searching = false;
         	},
     

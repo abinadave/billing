@@ -30,12 +30,6 @@ define(['underscore','backbone'], function(_, Backbone) {
             return truck_no;
         },
 
-    	appendTable: function() {
-    		require(['views/restore/view_table_restore_payrolls'], function(SubviewTable){
-    		    var view = new SubviewTable();
-    		});
-    	},
-
     	appendList: function(list) {
     		require(['views/restore/view_list_of_rpayrolls'], function(SubviewList){
     		    var view = new SubviewList({

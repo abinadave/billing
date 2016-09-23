@@ -8,7 +8,7 @@ define(['underscore','backbone',
     var Subview = Backbone.View.extend({
     
         	initialize: function(){
-                this.render();
+
         	},
     
         	tagName: 'div',
