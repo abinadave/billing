@@ -23,6 +23,7 @@ define([
     
         	initialize: function(){
                 this.render();
+                this.searching = false;
         	},
     
         	tagName: 'div',
@@ -80,6 +81,7 @@ define([
                     self.$el.find('#tbl-eci-workers').width(width + 50);
                     self.$el.find('#div-tbl-workers').height(height - 140);
                 });
+
         	},
 
             allEvents: function(self) {
@@ -100,9 +102,11 @@ define([
                     var value = $(this).val();
                     clearTimeout(self.timer);
                     self.timer = setTimeout(function() {
+                        self.$el.find('#search-loading').hide();
                         var list = eciworker_module.search(value.toLowerCase());
                         eciworker_module.appendList(new Backbone.Collection(list));
                     }, 700);
+
                 });
 
             }

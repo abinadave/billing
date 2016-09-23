@@ -21,8 +21,12 @@ define(['underscore','backbone',
                 require(['modules/designation_module'], function(designation_module){
                     designation_module.appendListInModal(designations);
                 });
-            }else {
-                
+            }
+
+            if ($('#panel-eci-workers').length) {
+                require(['modules/designation_module'], function(desig_module){
+                    desig_module.appendDisplayByDesignation(designations);
+                });
             }
         },
     

@@ -23,6 +23,12 @@ define(['underscore','backbone',
             }else {
                 
             }
+
+            if ($('#panel-eci-workers').length) {
+                require(['modules/site_module'], function(site_module){
+                    site_module.appendDisplayBySite(sites);
+                });
+            }
         },
     
     	print: function(){

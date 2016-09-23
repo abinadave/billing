@@ -23,7 +23,7 @@ define(['underscore','backbone','text!templates/temp_login.html',
                 self.$el.off();
                 self.$el.empty();
                 var output = self.template(template);
-                self.$el.append(output);
+                self.$el.append(output).hide().fadeIn('slow');
                 self.onRender();
     	        return self;
         	},

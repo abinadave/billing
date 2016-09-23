@@ -33,9 +33,11 @@ define(['underscore','backbone',
                 var self = this;
                 $(function(){
                     //jQuery
-                    
                 });
-        	}
+        	},
+
+            sortByName(list){
+            }
     
     });
    

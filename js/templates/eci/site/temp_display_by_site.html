@@ -1,4 +1,4 @@
-<option value="0">Select Site</option>
+<option value="0">Select Site (<%= eci_workers.length %>)</option>
 <% library.forEach(function(model) { %>
-    <option value="<%= model.id %>"><%= model.name %></option>
+    <option value="<%= model.id %>"><%= model.name %> (<%= eci_workers.where({site: model.id}).length %>)</option>
 <% }); %>

@@ -26,13 +26,20 @@ define([
         	    var self = this;
                 self.$el.off();
                 self.$el.empty();
+                var sortedList = self.sortByName(self.collection);
                 var output = self.template({
-                	'library': self.collection.toJSON()
+                	'library': sortedList.toJSON()
             	});
                 self.$el.append(output);
                 self.onRender();
     	        return self;
         	},
+
+            sortByName(list){
+                var sortedList = _.sortBy(list.toJSON(), 'name');
+                return new Backbone.Collection(sortedList);
+                
+            },
     
         	onRender: function(){
                 var self = this;
@@ -50,6 +57,7 @@ define([
                         });                        
                     });
                 });
+
         	}
     
     });
