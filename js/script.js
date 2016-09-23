@@ -14,6 +14,13 @@ jQuery(document).ready(function($) {
 	});
 });
 
+$(function() {
+	$('#logout-route').click(function(event) {
+		$(this).text('Signing out...');
+		$(this).append('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
+	});
+});
+
 function printSession() {
     $.post('ajax/select/get_session.php', function(data, textStatus, xhr) {
         /*optional stuff to do after success */
