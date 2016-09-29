@@ -9,6 +9,12 @@ class Eci_worker
 		self::$handler = Database::connect();
 	}
 
+	public function fetchByIndexType($index, $type){
+		$sql = "SELECT * FROM eci_workers ORDER BY $index $type";
+		$query = self::$handler->query($sql);
+		return $query->fetchAll(PDO::FETCH_OBJ);
+	}
+
 	public function FetchWhereSite($site_id){
 		$sql = "SELECT * FROM eci_workers WHERE site = ?";
 		$query = self::$handler->prepare($sql);

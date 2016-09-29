@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 $(function() {
 	$('#logout-route').click(function(event) {
 		$(this).text('Signing out...');
-		$(this).append('<i class="fa fa-spinner fa-pulse fa-fw"></i>');
+		$(this).append('<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>');
 	});
 });
 

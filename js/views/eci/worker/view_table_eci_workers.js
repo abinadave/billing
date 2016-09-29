@@ -109,6 +109,22 @@ define([
 
                 });
 
+                self.$el.find('#cbo-filter-by, #cbo-type').change(function(event) {
+                    var index = self.$el.find('#cbo-filter-by').val(),
+                    type = self.$el.find('#cbo-type').val();
+
+                    var url = 'index.php/eci_worker/order_index_type/'+index+'/'+type;
+                    
+                    $.when(eci_workers.fetch({
+                        url: url
+                    })).then((response) => {
+                        eciworker_module.appendList(new Backbone.Collection(response));
+                    }, (errorResp) => {
+                        console.log('error in fetching eci workers index and type: error type was '+ errorResp);
+                    });
+                    
+                });
+
             }
     
     });

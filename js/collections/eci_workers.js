@@ -17,6 +17,9 @@ define(['underscore','backbone','models/eci_worker',
                 recycled_eciworkers.create(eci_worker);
                 this.redisplay();
     		});
+            this.on('fetch', function(){
+                console.log('fetching')
+            })
     	},
         
         redisplay: function() {

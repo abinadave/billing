@@ -5,7 +5,10 @@ session_start();
     
    
 	\Slim\Slim::registerAutoloader();
-	$app = new \Slim\Slim();
+	$app = new \Slim\Slim(array(
+		'debug' => true,
+      	'mode' => 'development'
+	));
 
 	$app->delete('/site/:id', function($id) use ($app){
 		require 'class/class.site.php';

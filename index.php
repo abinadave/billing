@@ -4,7 +4,16 @@
   require 'class/class.functions.php';
     
   \Slim\Slim::registerAutoloader();
-  $app = new \Slim\Slim();
+  $app = new \Slim\Slim(array(
+      'debug' => true,
+      'mode' => 'development'
+  ));
+
+  $app->get('/eci_worker/order_index_type/:index/:type', function($index, $type){
+      require 'class/class.eci_worker.php';
+      $worker = new Eci_worker();
+      echo json_encode($worker->fetchByIndexType($index, $type));
+  });
 
   $app->get('/notify_license_days/latest_id', function(){
       require 'class/class.notification.php';

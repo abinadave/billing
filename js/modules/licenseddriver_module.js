@@ -4,57 +4,57 @@ define(['underscore','backbone',
    
     var Module = {
 
-            displayNearlyExpiredWorkers(){
-                var self = this;
-                $.get('index.php/notify_license_days/latest_id', function(data) {
-                    var row = $.parseJSON(data);
-                    var list = self.getNearlyExpiredWorkers(row.days);
-                    
-                    self.appendNearlyExpiredWorkers(
-                        new Backbone.Collection(list)
-                    );
+        displayNearlyExpiredWorkers(){
+            var self = this;
+            $.get('index.php/notify_license_days/latest_id', function(data) {
+                var row = $.parseJSON(data);
+                var list = self.getNearlyExpiredWorkers(row.days);
+                
+                self.appendNearlyExpiredWorkers(
+                    new Backbone.Collection(list)
+                );
 
-                    var obj = self.getExpiredLicense(list);
-                    $('#expired-license').text(obj.expired);
-                    $('#nearly-expired').text(obj.nearly);
-                });
-            },
+                var obj = self.getExpiredLicense(list);
+                $('#expired-license').text(obj.expired);
+                $('#nearly-expired').text(obj.nearly);
+            });
+        },
 
-            getExpiredLicense(list){
-                var expired = 0, nearly = 0;
-                list.forEach(function(model) {
-                    if (model.diffInDays <= 0) {
-                        ++expired;
-                    }else {
-                        ++nearly;
-                    }
-                });
-                return {
-                    expired: expired,
-                    nearly: nearly
-                };
-            },
+        getExpiredLicense(list){
+            var expired = 0, nearly = 0;
+            list.forEach(function(model) {
+                if (model.diffInDays <= 0) {
+                    ++expired;
+                }else {
+                    ++nearly;
+                }
+            });
+            return {
+                expired: expired,
+                nearly: nearly
+            };
+        },
 
-            getNearlyExpiredWorkers(rule_days){
-                var self = this, diffInDays = 0;
-                var date_now = moment().format('MMMM DD, YYYY');
-                return eci_workers.toJSON().filter(function(model) {
-                    var licenseFound = self.findLatestLicense(model.id);
-                    if (licenseFound.length) {
-                        var license = _.first(licenseFound);
-                        var diffInDays = moment(license.get('exp_date')).diff(date_now,'days');
-                        model.exp_date = license.get('exp_date');
-                        model.diffInDays = diffInDays;
-                        return Number(diffInDays) <= Number(rule_days);
-                    }
-                });
-            },
+        getNearlyExpiredWorkers(rule_days){
+            var self = this, diffInDays = 0;
+            var date_now = moment().format('MMMM DD, YYYY');
+            return eci_workers.toJSON().filter(function(model) {
+                var licenseFound = self.findLatestLicense(model.id);
+                if (licenseFound.length) {
+                    var license = _.first(licenseFound);
+                    var diffInDays = moment(license.get('exp_date')).diff(date_now,'days');
+                    model.exp_date = license.get('exp_date');
+                    model.diffInDays = diffInDays;
+                    return Number(diffInDays) <= Number(rule_days);
+                }
+            });
+        },
 
-            findLatestLicense(worker_id){
-                var arrOfLicense = licensed_drivers.where({worker_id: worker_id}, false); var largest = 0;
-                arrOfLicense.forEach(function(model) { if (Number(model.id) > largest) { largest = Number(model.id); } });
-                return licensed_drivers.where({id: largest.toString()});
-            },
+        findLatestLicense(worker_id){
+            var arrOfLicense = licensed_drivers.where({worker_id: worker_id}, false); var largest = 0;
+            arrOfLicense.forEach(function(model) { if (Number(model.id) > largest) { largest = Number(model.id); } });
+            return licensed_drivers.where({id: largest.toString()});
+        },
     	
         getDriversLicense(i){
     		var rs = licensed_drivers.where({worker_id: i});
