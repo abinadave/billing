@@ -3,7 +3,6 @@ session_start();
 	require 'assets/Slim/Slim/Slim.php';
     require 'class/class.functions.php';
     
-   
 	\Slim\Slim::registerAutoloader();
 	$app = new \Slim\Slim(array(
 		'debug' => true,

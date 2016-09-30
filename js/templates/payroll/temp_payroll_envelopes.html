@@ -4,56 +4,18 @@
     }
 </style>
 <% library.forEach(function(model) { %>
-<% var payroll = payrolls.get(model.payroll_id) %>
-<center style="margin-top: -10px">
-    <div class="panel panel" id="panel-env" style="width: 800px; padding: 15px; page-break-after: always;">
-          <p class="pull-right"><%= summary_module.getPayrolldate() %> </p>
-          <ul class="list-group pull-left">
-             <li class="list-group-item text-left" style="border-color: transparent; padding: 2px"># <%= employee_module.getProperty(model.id, 'numbering') %> <%= model.fullname %></li>
-             <li class="list-group-item text-left" style="border-color: transparent; padding: 2px">Total Tonnage <span style="font-weight: bolder"><%= Accounting.formatMoney(model.ton,'',2) %></span></li>
-             <li class="list-group-item text-left" style="border-color: transparent; padding: 2px"><%= model.designation.toUpperCase() %></li>          
-          </ul>
-          <table class="table table-hover" style="margin-top: 20%; width: 50%">
-                <thead>
-                     <tr>
-                         <th style="border-color: transparent; padding: 2px">
-                            Salary
-                         </th>
-                         <th style="border-color: transparent; padding: 2px" class="text-center">
-                            ----------------
-                         </th>
-                         <th style="border-color: transparent; padding: 2px" class="text-right">
-                             <% if(model.designation === 'driver'){ %>
-                                  <% var salary = employee_module.calculateSalaryDriver(model.ton) %>
-                                  <%= Accounting.formatMoney(Math.floor(salary),'',2) %>
-                             <% }else { %>
-                                  <% var salary = employee_module.calculateSalaryHelper(model.ton) %>
-                                  <%= Accounting.formatMoney(Math.floor(salary),'',2) %>
-                             <% } %>
-                         </th>
-                     </tr>
-
-                     <tr>
-                         <td style="border-color: transparent; padding: 2px">
-                            Less
-                         </td>
-                         <th style="border-color: transparent; padding: 2px" class="text-right">
-
-                         </th>
-                         <th style="border-color: transparent; padding: 2px" class="text-right">
-                            
-                         </th>
-                     </tr>
-                     <tr>
-                         <th class="text-right" style="margin-right: 4%; border-color: transparent; padding: 2px" colspan="3">
-                            _____________
-                         </th>
-                     </tr>
-                      
-                </thead>
-            </table>
-
-    </div>                               
-</center>
-
+<% var salary = employee_module.calculateSalary(Number(model.ton), model) %>
+    <div style="page-break-after: always">
+        <ul>
+            <li class="pull-right"><%= summary_module.getPayrolldate() %></li>
+            <li># <%= employee_module.getProperty(model.id, 'numbering') %> <%= model.fullname.toUpperCase() %></li>
+            <li>Total Tonnage <%= Accounting.formatMoney(model.ton, '', 0) %></li>
+            <li><%= model.designation.toUpperCase() %></li>
+        </ul>
+        <ul class="text-center">
+            <li>Salary &nbsp;&nbsp;----------------&nbsp;&nbsp;  <%= Accounting.formatMoney(Math.floor(salary), '', 0) %></li>
+            <li style="margin-left: -140px; font-size: 15px;" class="text-danger">Less</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______________</li>
+        </ul>
+    </div>
 <% }); %>

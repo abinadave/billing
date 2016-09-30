@@ -37,6 +37,15 @@ define(['underscore','backbone',
     
         	onRender: function(){
                 var self = this;
+
+                $(function() {
+                    self.$el.find('ul').css({
+                        'list-style': 'none'
+                    }).end().find('li').css({
+                        'font-size': '15px'
+                    });
+                });
+
                 $(function(){
                      $('#main, #div-navigation').hide();
                      window.print();
