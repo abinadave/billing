@@ -44,9 +44,9 @@ session_start();
 		$data = json_decode($app->request()->getBody(), true);
 		require 'class/class.database.php';
 		$handler = Database::connect();
-		$sql = "UPDATE eci_workers SET fullname = ?, rpd = ?, designation = ?, site = ?, date_hired = ? WHERE id = ?";
+		$sql = "UPDATE eci_workers SET fullname = ?, rpd = ?, allowance = ?, designation = ?, site = ?, date_hired = ? WHERE id = ?";
 		$query = $handler->prepare($sql);
-		$rs = $query->execute(array( $data['fullname'], $data['rpd'], $data['designation'], $data['site'], $data['date_hired'], $data['id']));
+		$rs = $query->execute(array( $data['fullname'], $data['rpd'], $data['allowance'], $data['designation'], $data['site'], $data['date_hired'], $data['id']));
 		echo json_encode(array('updated' => $rs));
 	});
 

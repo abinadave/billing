@@ -43,10 +43,6 @@ define([
                 });
 
                 $(function() {
-                    // console.log(1);
-                });
-
-                $(function() {
                     setTimeout(function() {
                         desig_module.appendListInCbo(designations);
                         site_module.appendListInCbo(sites);
@@ -79,6 +75,7 @@ define([
                             var obj = {
                                 fullname: self.$el.find('#fullname').val().toUpperCase(),
                                 rpd: self.$el.find('#rpd').val(),
+                                allowance: self.$el.find('#allowance').val(),
                                 designation: self.$el.find('#designation').val(),
                                 site: self.$el.find('#site').val(),
                                 date_hired: moment(self.$el.find('#date-hired').val()).format('MMMM DD, YYYY')

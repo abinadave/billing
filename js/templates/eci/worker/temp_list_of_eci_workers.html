@@ -2,6 +2,7 @@
    <tr id="<%= model.id%>" class="js-popover" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" title="Employee Details">
       <td width="200"><%= model.fullname.toUpperCase() %></td>
       <td class="text-right" width="100"><%= model.rpd %></td>
+      <td class="text-right" width="100"><%= model.allowance %></td>
       <td class="text-center"><%= desig_module.getIndex(model.designation) %></td>
       <td class="text-center"><%= site_module.getIndex(model.site) %></td>
       <td class="text-center"><%= model.date_hired %> (<span class="text-muted"><%= moment(model.date_hired).fromNow() %></span>)</td>
