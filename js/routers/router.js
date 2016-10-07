@@ -86,12 +86,12 @@ function($, _, Backbone, moment){
 		updatePayroll: function(id) {
 			this.navigate('payrolls');
 			console.log(id);
-			require(['libs/backbone.obscura'], function(Obscura){
+			// require(['libs/backbone.obscura'], function(Obscura){
 	            require(['modules/payroll_module'], function(pm){
 	            	var model = payrolls.get(id);
 	                pm.appendUpdatePayroll(model);
 	            });
-            });
+            // });
 		},
 
 		removePayroll: function(id) {

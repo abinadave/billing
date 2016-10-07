@@ -38,12 +38,22 @@ define([
         	onRender: function(){
                 var self = this;
 
+                $(document).ready(function() {
+                    // self.$el.find('#search').keyup(function(event) {
+                    //     var searched = $(this).val();
+                    //     clearTimeout(self.timer);
+                    //     self.timer = setTimeout(function() {
+                    //         console.log(searched);
+                    //     }, 1000);
+                    // });
+                });
+
                 $(function(){
                     self.$el.find('tbody').html('<tr><td colspan="10">Please wait while fetching data from the server....</td></tr>');
                     setTimeout(function() {
                         $.when(employees.fetch({silent: true})).then(function() {
                             $.when(payrollemps.fetch({silent: true, url: 'api.php/payrollemp/partial'})).then(function() {
-                                $.when(payrolls.fetch({silent: true, url: 'api.php/get_order_by/payrolls/date_time/desc'})).then(function() {
+                                $.when(payrolls.fetch({silent: true, url: 'api.php/get_order_by/payrolls/date/ASC'})).then(function() {
                                     require(['views/payroll/view_list_of_payroll'], function(Subview){
                                         var view = new Subview({
                                             collection: payrolls

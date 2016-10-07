@@ -1,7 +1,9 @@
 define(['underscore','backbone',
 	'text!templates/payroll/temp_modal_update_payroll.html',
 	'moment',
-	'modules/collection_module'], function(_, Backbone, template, moment, colmod) {
+	'modules/collection_module',
+    'views/employee/view_list_of_employee_in_update_payroll'], 
+    function(_, Backbone, template, moment, colmod, SubviewListOfEmps) {
    
     var Subview = Backbone.View.extend({
     
@@ -23,8 +25,10 @@ define(['underscore','backbone',
         	    var self = this;
                 self.$el.off();
                 self.$el.empty();
-                var output = self.template({'model': self.model.toJSON(),
-                	'moment': moment });
+                var output = self.template({
+                    'model': self.model.toJSON(),
+                	'moment': moment 
+                });
                 self.$el.append(output);
                 self.onRender();
     	        return self;
@@ -32,6 +36,18 @@ define(['underscore','backbone',
     
         	onRender: function(){
                 var self = this;
+
+                $(document).ready(function() {
+                    var rs = payrollemps.where({payroll_id: self.model.get('id')});
+                    if (!rs.length) {
+                        router.alertify_warning('There are no employee for this payroll.');
+                    }else {
+                        new SubviewListOfEmps({
+                            collection: new Backbone.Collection(rs)
+                        });
+                    }
+                });
+
                 $(function(){
                 	var json = self.model.toJSON();
                     self.$el.find('#modalUpdatePayroll').modal('show');

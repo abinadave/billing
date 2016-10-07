@@ -36,6 +36,19 @@
                     <input type="number" class="form-control" name="ton" style="width: 200px" value="<%= model.ton %>">
                     <input type="hidden" name="person" value="<%= sessionStorage.getItem('fullname') %>">
                 </label>
+
+                <hr>
+
+                <table id="tbl-pemps" class="table table-hover table-bordered table-condensed">
+                    <thead>
+                        <th>Employee name</th>
+                        <th>Designation</th>
+                    </thead>
+                    <tbody id="list-of-pemps"></tbody>
+                </table>
+
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
