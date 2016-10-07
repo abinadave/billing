@@ -53,7 +53,7 @@ define([
                     setTimeout(function() {
                         $.when(employees.fetch({silent: true})).then(function() {
                             $.when(payrollemps.fetch({silent: true, url: 'api.php/payrollemp/partial'})).then(function() {
-                                $.when(payrolls.fetch({silent: true, url: 'api.php/get_order_by/payrolls/date/ASC'})).then(function() {
+                                $.when(payrolls.fetch({silent: true, url: 'api.php/get_order_by/payrolls/date/DESC'})).then(function() {
                                     require(['views/payroll/view_list_of_payroll'], function(Subview){
                                         var view = new Subview({
                                             collection: payrolls
