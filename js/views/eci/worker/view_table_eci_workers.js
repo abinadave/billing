@@ -55,6 +55,12 @@ define([
                     new SubviewModalRecycledEmps();
                 });
 
+                $(function() {
+                    $('#tbl-eci-workers').mouseout(function(event) {
+                        $('.popover ').hide();
+                    });
+                });
+
                 $(function(){
                     self.allEvents(self);
 
@@ -127,19 +133,45 @@ define([
 
             stoNotifications(){
                 var self = this;
-                setTimeout(function() {
+                /* license expirations */
+                clearTimeout(self.sto_license_notif);
+                self.sto_license_notif = setTimeout(function() {
                     require(['modules/licenseddriver_module'], function(LDM){
                         LDM.notification(self);
                     });
-                }, 10000);
+                }, 5000);
+                clearTimeout(self.sto_contract_notif);
+                /* contract expirations */
+                self.sto_contract_notif = setTimeout(function() {
+                    require(['modules/contract_module'], function(CONTRACT_MODULE){
+                        CONTRACT_MODULE.notifyNearlyExpired(self);
+                    });
+                }, 15000);
             },
 
             notifyExpiredLicense(obj){
                 var self = this;
                 require(['toastr'], function(toastr){
                     toastr.options.timeOut = 10000;
-                    toastr.info(obj.nearly + ' nearly expired license');
-                    toastr.error(obj.expired + ' expired license');
+                    if (Number(obj.expired) > 0) {
+                        toastr.error('<a href="#expiration/license"><b>' + obj.expired + '</b> expired License </a>');
+                    }
+                    if (Number(obj.nearly)) {
+                        toastr.info('<a href="#expiration/license"><b>' + obj.nearly + '</b> nearly expired License </a>');
+                    }
+                });                
+            },
+
+            notifyExpiredContract(obj){
+                var self = this;
+                require(['toastr'], function(toastr){
+                    toastr.options.timeOut = 10000;
+                    if (Number(obj.expired) > 0) {
+                        toastr.error('<b>' + obj.expired + '</b> expired Contracts');
+                    }
+                    if (Number(obj.nearly)) {
+                        toastr.info('<b>' + obj.nearly + '</b> nearly expired Contracts');
+                    }
                 });                
             }
     

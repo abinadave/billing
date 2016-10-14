@@ -80,10 +80,11 @@ define([
                         });
 
                         popover.on('show.bs.popover', function() {
+                            
                             var id = this.id;
                             var rsWorker = eci_workers.where({id: id});
                             var rsContract = expiration_module.findLatestContract(id);
-                            var html = '<div style="width: 200px">';
+                            var html = '<div class="all-popover" style="width: 200px">';
 
                             if (rsWorker.length) {
                                 var worker = rsWorker[0].toJSON();

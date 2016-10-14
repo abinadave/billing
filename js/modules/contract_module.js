@@ -1,7 +1,35 @@
 define(['underscore','backbone',
-	'moment','modules/functions'], function(_, Backbone, moment, Fn) {
+	'moment','modules/functions',
+    'modules/expiration_module'], function(_, Backbone, moment, Fn, EXPIRATION_MODULE) {
    
     var Module = {
+
+        notifyNearlyExpired(self){
+            $.ajax({
+                url: 'index.php/notify_contract_day/latest',
+                type: 'GET'
+            }).done(function(data) {
+                var json = $.parseJSON(data);
+                if (Number(json.days) > 0) {
+                    $('#days-b4-expiration').val(json.days);
+                    $('#rule-days').text(json.days);
+                    var listOfEmps = EXPIRATION_MODULE.getNearlyExpiredContract(json.days);
+                    var expired = EXPIRATION_MODULE.getExpiredContracts(listOfEmps);
+                    
+                    var nearlyExpired = Number(listOfEmps.length) - Number(expired);
+                    self.notifyExpiredContract({
+                        nearly: nearlyExpired,
+                        expired: expired
+                    });
+                }
+            }).fail(function() {
+                console.log("Error in fetching latest contract day.");
+            });
+        },
+
+        notification(self){
+            console.log(self);
+        },
 
     	getContract(i){
     		var rs = contracts.where({worker_id: i});
