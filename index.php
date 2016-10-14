@@ -154,6 +154,12 @@
     echo json_encode($model::save($data));
   });
 
+  $app->get('/licensed_driver', function() use ($app){
+    $data = json_decode($app->request()->getBody(), true);
+    $model = new Model();
+    echo json_encode($model::select('licensed_drivers'));
+  });
+
   $app->post('/contract', function() use ($app){
     $data = json_decode($app->request()->getBody(), true);
     $model = new Model();

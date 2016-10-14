@@ -2,7 +2,7 @@ define(['underscore','backbone',
 	'models/licensed_driver'], function(_, Backbone, LDModel) {
    
     var LD = Backbone.Collection.extend({
-    
+        url: 'index.php/licensed_driver',
     	model: LDModel,
     		
     	initialize: function(){

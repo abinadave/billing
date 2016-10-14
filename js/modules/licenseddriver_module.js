@@ -4,6 +4,17 @@ define(['underscore','backbone',
    
     var Module = {
 
+        notification(module){
+            var self = this;
+            $.get('index.php/notify_license_days/latest_id', function(data) {
+                var row = $.parseJSON(data);
+                console.log(row);
+                var list = self.getNearlyExpiredWorkers(row.days);
+                var obj = self.getExpiredLicense(list);
+                module.notifyExpiredLicense(obj);
+            });
+        },
+
         displayNearlyExpiredWorkers(){
             var self = this;
             $.get('index.php/notify_license_days/latest_id', function(data) {

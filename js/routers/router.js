@@ -168,10 +168,7 @@ function($, _, Backbone, moment){
 
 		showEciWorkers: function() {
 			viewTblEciWorkers.render();
-			// require(['views/eci/worker/view_table_eci_workers'], 
-			// 	function(SubviewTEW){
-			//     var view = new SubviewTEW();
-			// });
+			
 		},
 
 		updateEciWorker: function(i) {

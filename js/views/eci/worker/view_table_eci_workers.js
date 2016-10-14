@@ -69,7 +69,7 @@ define([
                             eciworker_module.appendList(eci_workers);
                             designation_module.appendDisplayByDesignation(designations);
                             site_module.appendDisplayBySite(sites);
-                            // sites.print();
+                            self.stoNotifications();
                         });
                     });
                     
@@ -122,9 +122,25 @@ define([
                     }, (errorResp) => {
                         console.log('error in fetching eci workers index and type: error type was '+ errorResp);
                     });
-                    
                 });
+            },
 
+            stoNotifications(){
+                var self = this;
+                setTimeout(function() {
+                    require(['modules/licenseddriver_module'], function(LDM){
+                        LDM.notification(self);
+                    });
+                }, 10000);
+            },
+
+            notifyExpiredLicense(obj){
+                var self = this;
+                require(['toastr'], function(toastr){
+                    toastr.options.timeOut = 10000;
+                    toastr.info(obj.nearly + ' nearly expired license');
+                    toastr.error(obj.expired + ' expired license');
+                });                
             }
     
     });

@@ -12,7 +12,8 @@ require.config({
 		"datatable": "libs/dataTables/jquery.dataTables",
 		"DT-bootstrap": "libs/dataTables/dataTables.bootstrap",
 		"jqueryui": "libs/jquery-ui/jquery-ui.min",
-		"alertify": "libs/alertify/alertify"
+		"alertify": "libs/alertify/alertify",
+		"toastr": "libs/toastr/toastr.min"
 	},
 	
 	'shim': 
@@ -54,6 +55,12 @@ require.config({
         	"deps": [
         		'css!libs/alertify/css/alertify.css',
         		'css!libs/alertify/css/themes/bootstrap.min.css'
+        	]
+        },
+
+        "toastr": {
+        	"deps": [
+        		'css!libs/toastr/toastr.min.css'
         	]
         }
 
