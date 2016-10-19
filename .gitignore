@@ -4,7 +4,11 @@
 *.sql
 *.sqlite
 
-
 class.database.php
 medoo.php
 medoo.min.php
+
+*.jpeg
+*.jpg
+*.png
+*.gif

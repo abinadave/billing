@@ -7,10 +7,11 @@ define([
     'modules/licenseddriver_module',
     'modules/contract_module',
     'modules/expiration_module',
-    'moment'
+    'moment',
+    'libs/accounting.min'
     ], function(_, Backbone, template, desig_module, site_module, 
         licenseddriver_module, contract_module, expiration_module,
-        moment) {
+        moment, accounting) {
    
     var SubviewEW = Backbone.View.extend({
     
@@ -39,7 +40,8 @@ define([
                     'licenseddriver_module': licenseddriver_module,
                     'contract_module': contract_module,
                     'self': self,
-                    'moment': moment
+                    'moment': moment,
+                    'accounting': accounting
            		});
                 self.$el.append(output);
                 self.onRender();
