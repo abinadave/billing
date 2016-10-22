@@ -25,8 +25,8 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img class="img-rounded" style="width: 50px; height: 50px; padding: 4px" src="assets/ECI%20logo.jpg">
-            <a class="navbar-brand" href="#">Ezjones Constructions</a>
+            <img class="img-thumbnail pull-left" style="width: 35px; height: 35px; padding: 0px; margin-top: 14px" src="assets/ECI%20logo.jpg">
+            <a class="navbar-brand" href="#"> &nbsp;&nbsp;&nbsp;Ezjones Constructions</a>
           </div>
 
           <div id="navbar" class="navbar-collapse collapse">
