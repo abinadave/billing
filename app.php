@@ -4,6 +4,7 @@
 <head>
   <title>Garbarge Billing System</title>
      <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/themes/bootstrap.min.paper.css">
      <script data-main="js/main" src="js/require-jquery.js"></script>
      
      <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
