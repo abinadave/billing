@@ -14,14 +14,14 @@ class medoo
 
 	protected $charset = 'utf8';
 
-	protected $database_name = 'billing';
+	protected $database_name = 'ezjonesl_billing';
 
 	// For MySQL, MariaDB, MSSQL, Sybase, PostgreSQL, Oracle
 	protected $server = 'localhost';
 
-	protected $username = "root";
+	protected $username = "ezjonesl_root";
 
-	protected $password = "";
+	protected $password = "qvE*TcZ9v+1Nzr*4=T";
 
 	// For SQLite
 	protected $database_file;

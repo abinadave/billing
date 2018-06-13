@@ -3,10 +3,10 @@
 class medoo{
 	protected $database_type = 'mysql';
 	protected $charset = 'utf8';
-	protected $database_name = 'billing';
+	protected $database_name = 'ezjonesl_billing';
 	protected $server = 'localhost';
-	protected $username = 'root';
-	protected $password = "";
+	protected $username = 'ezjonesl_root';
+	protected $password = "qvE*TcZ9v+1Nzr*4=T";
 	protected $database_file;
 	protected $socket;
 	protected $port;
