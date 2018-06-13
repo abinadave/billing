@@ -5,8 +5,8 @@ class medoo{
 	protected $charset = 'utf8';
 	protected $database_name = 'ezjonesl_billing';
 	protected $server = 'localhost';
-	protected $username = 'ezjonesl_root';
-	protected $password = "qvE*TcZ9v+1Nzr*4=T";
+	protected $username = '';
+	protected $password = "";
 	protected $database_file;
 	protected $socket;
 	protected $port;
