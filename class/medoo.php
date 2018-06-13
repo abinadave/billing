@@ -19,9 +19,9 @@ class medoo
 	// For MySQL, MariaDB, MSSQL, Sybase, PostgreSQL, Oracle
 	protected $server = 'localhost';
 
-	protected $username = "ezjonesl_root";
+	protected $username = "";
 
-	protected $password = "qvE*TcZ9v+1Nzr*4=T";
+	protected $password = "";
 
 	// For SQLite
 	protected $database_file;
